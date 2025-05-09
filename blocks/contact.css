@@ -1,3 +1,12 @@
+a {
+    color: #E8DEC5;        /* Your custom beige or any other color */
+    text-decoration: none; /* Removes underline */
+  }
+  
+  a:hover {
+    color: #fff;           /* Optional: changes color on hover */
+    text-decoration: underline; /* Optional: adds underline on hover */
+  }
 .contact {
     background-color: #212121;
     display: grid;
@@ -8,6 +17,7 @@
     padding-right: 97px;
     font-family: "kolektiff", sans-serif;
     color: #E8DEC5;
+    padding-bottom: 61px;
 }
 
 .contact__contactanos {
@@ -60,6 +70,7 @@ text-transform: uppercase;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
+    gap: 10px;
 }
 
 .contact__direccion_title {
@@ -79,11 +90,14 @@ text-transform: uppercase;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
+    gap: 10px;
 }
 
 .contact__whatsapp_title {}
 
-.contact__whatsapp_content {}
+.contact__whatsapp_content {
+  
+}
 
 .contact__email {
     grid-area: 4/3/5/4;
@@ -95,6 +109,7 @@ text-transform: uppercase;
     font-size: 18px;
     line-height: 100%;
     letter-spacing: 0%;
+    gap: 10px;
 }
 
 .contact__email_title {}
