@@ -1,0 +1,237 @@
+.description {
+    width: 100%;
+    height:827px;
+    background-color: black;
+    padding-top: 13px
+}
+
+.description__top {
+    height: 148px;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: #E8DEC5;
+    display: flex;
+    width: 1102px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+   
+
+}
+
+.description__top_area {
+    display: flex;
+    align-items: center;
+    gap:21px
+}
+
+.description__top_naves {
+    display: flex;
+    align-items: center;
+    gap:21px
+    
+
+}
+.description__top_numbers{
+    font-family: "kollektif", "arial", sans-serif;
+    color: #E8DEC5;
+    font-weight: 500;
+    font-size: 100px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    
+        
+    }
+    .description__top_text{
+    font-family: "kollektif", "arial", sans-serif;
+    color: #E8DEC5;
+    font-weight: 500;
+    font-size: 28 px;
+    line-height: 30px;
+    letter-spacing: 0%;
+    width: 130px;
+    height: 63px;
+    
+    }
+.description__grid {
+    display: grid;
+    height: 560px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 20%);
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 45px;
+    gap:16px;
+    font-family: "kollektif", "arial", sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 34px;
+    text-transform: uppercase;
+  
+}
+
+.description__grid_naves {
+    background-color: #E8DEC5;
+    color: #000;
+    grid-area: 1/ 1 / 4 / 2 ;
+    padding:14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 5px;
+}
+.description__icon_naves{
+    width: 70px;
+    height: 80px;
+    grid-area: 1 / 3 / 2 / 4 ;
+   
+}
+.description__naves{
+    width: 70px;
+    grid-area: 3/1/4/4;
+    
+    
+}
+.description__grid_seguridad {
+    background-color: #564F37;
+    color: #E8DEC5;
+    grid-area: 4/ 1 / 6 / 2 ;
+    padding:14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border-radius: 5px;
+    
+}
+.description__icon_seguridad{
+    width: 61px;
+    height: 65px;
+    grid-area: 3/ 1 / 4 / 2 ;
+
+}
+.description__seguridad{
+    grid-area: 1/ 2 / 3 / 4 ;
+}
+.description__grid_infraestructura {
+    background-color: #C94D41;
+    color: #000;
+    grid-area: 1/ 2 / 2 / 4 ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+   
+    
+}
+.description__icon_infraestructura{
+    width: 58px;
+    height: 66px:
+  
+}
+
+.description__grid_operacion {
+    background-color: #212121;
+    color: #E8DEC5;
+    grid-area: 2 / 2 / 4 / 4 ;
+    padding:14px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 5px;
+   
+
+}
+.description__icon_operacion{
+    width: 51px;
+    height: 103px;
+    height: 80px;
+    grid-area: 1 / 5 / 3 / 6 ;
+    
+
+}
+.description__operacion{
+
+    grid-area: 3 / 1 / 4 / 5 ;
+    
+}
+.description__grid_servicios {
+    background-color:#524239;
+    color: #E8DEC5;
+    grid-area: 4/ 2 / 6 / 3 ;
+    padding:14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border-radius: 5px;
+}
+.description__icon_servicios{
+    width: 73px;
+    height: 70px;
+    grid-area: 1/ 1 / 2 / 2 ;
+   
+}
+.description__servicios{
+    grid-area: 2/ 3 / 3 / 4 ;
+  
+    
+}
+.description__grid_business {
+    background-color: #564F37;
+    color: #E8DEC5;
+    grid-area: 1/ 4 / 4 / 5 ;
+    padding:14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 5px;
+
+}
+.description__icon_business{
+    width: 77px;
+    height: 87px;
+    grid-area: 3/3/4/4;
+   
+}
+.description__business{
+    grid-area: 1/ 1 / 2 / 3 ;
+    
+    
+}
+.description__grid_sostenibilidad {
+    background-color: #E8DEC5;
+    color: #000;
+    grid-area: 4/ 3 / 5 / 5 ;
+    padding:14px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+
+}
+.description__icon_sostenibilidad{
+    width: 73px;
+    height: 63px;
+
+}
+.description__grid_ubicacion {
+    background-color: #C94D41;
+    color: #000;
+    grid-area: 5/ 3 / 6 / 5 ;
+    padding:14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+
+}
+.description__icon_ubicacion{
+    width: 60px;
+    height: 80px;
+    
+}

@@ -1,0 +1,40 @@
+.intro{
+    margin-top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+
+
+
+}
+
+.intro__title{
+    width: 982px;
+    height: 140px;
+    margin-left: 59px;
+    font-family: "kollektif", "arial", sans-serif;
+    color: #000;
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    
+
+}
+
+.intro__image{
+    padding
+    
+    width: 1282.5px;
+    height: 503px;
+    margin-left: -2.5px;
+    margin-bottom:-3px;
+    background-image: url("../vendor/images/intro.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 503px;
+
+
+}

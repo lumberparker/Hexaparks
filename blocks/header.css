@@ -1,0 +1,52 @@
+.header{
+    
+    min-height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 59px;
+    margin-right: 59px;
+}
+
+.header__logo{
+    height: 60px;
+    width: 417px;
+
+
+}
+.header__nav{
+    
+    width: 492px;
+    height: 54px;
+    background-color: #C94D41;
+    border-radius: 10px;
+    font-family: "kollektif", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    
+    letter-spacing: 0%;
+    vertical-align: middle;
+ 
+
+
+   
+} 
+
+.header__nav__list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+;
+    padding: 0;
+    list-style: none;
+    
+   
+}
+
+.header__nav__list__item a{
+    font-size: 16px;
+    line-height: 20px;
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+}
