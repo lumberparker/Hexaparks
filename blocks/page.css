@@ -17,7 +17,28 @@
     width: 1280px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+      height: 100%;
+      font-family: "kollektif", Arial, sans-serif;
+     
+    }
     
+    h1, h2, h3,
+    .intro__title,
+    .description__top_numbers,
+    .description__top_text,
+    .description__grid_text,
+    .masterplan__logo_title,
+    .masterplan__logo_subitle,
+    .masterplan__avances_title,
+    .features__toggle-title {
+      font-family: "kollektif", Arial, sans-serif;
+    }
+    
+    .features__toggle-title {
+      font-family: "murs", Arial, sans-serif;
+    }
   }
   
   @media screen and (max-width: 768px) {

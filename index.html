@@ -14,8 +14,8 @@
       content="SEO, HTML, meta etiquetas, optimización web, desarrollo web, desarrollo inmobiliario, proyecto, jalisco, méxico, inmobiliaria, bienes raíces, real estate, around, around jalisco"
     />
     <title>HEXAPARKS</title>
-    <link rel="stylesheet" href="./pages/index.css" />
-    <link rel="stylesheet" href="./vendor/fonts.css" />
+    <link rel="stylesheet" href="../pages/index.css" />
+    <link rel="stylesheet" href="../vendor/fonts.css" />
     <link rel="shortcut icon" href="./favicon.svg" />
   </head>
   <body>
@@ -28,7 +28,7 @@
                         <a href="#amenidades">Amenidades</a>
                     </li>
                     <li class="header__nav__list__item">
-                        <a href="#master-plan">Master Plan</a>
+                        <a href="#masterplan">Masterplan</a>
                     </li>
                     <li class="header__nav__list__item">
                         <a href="#contacto">Contacto</a>
@@ -54,7 +54,7 @@
                         <div class="description__top_text">Naves industriales</div>
                     </div>
                 </div>
-                <div class="description__grid">
+                <div class="description__grid"  id="amenidades">
                     <div class="description__grid_naves">
                         <img class="description__grid_icon description__icon_naves" src="./images/icono Naves.png" alt="Icono de Naves Industriales Funcionales">
                         <p class="description__grid_text description__naves">Naves Industriales Funcionales</p>
@@ -84,7 +84,7 @@
                     <div class="description__grid_sostenibilidad">
                         <img class="description__grid_icon description__icon_sostenibilidad" src="./images/icono sostenibilidad.png" alt="Icono de operacion Sostenibilidad y Bienestar">
                         <p class="description__grid_text description__seguridad">Sostenibilidad y Bienestar</p></div>
-                    <div class="description__grid_ubicacion">
+                    <div class="description__grid_ubicacion" >
                         <img class="description__grid_icon description__icon_ubicacion" src="./images/icono ubicacion.png" alt="Icono de operacion Ubicación Estratégica">
                         <p class="description__grid_text description__seguridad">Ubicación Estratégica</p></div>
                 </div>
@@ -94,11 +94,309 @@
                 
                 <img src="./images/mapa ubicacion.png" alt="Mapa de ubicación de Hexaparks" class="location__map">
             </section>
-            <section class="masterplan"></section>
-            <section class="features"></section>
-            <section class="contact"></section>
+            <section class="masterplan" id="masterplan">
+                <div class="masterplan__logo">
+                    <img src="./images/simbolo.png" alt="Icono de Hexaparks" class="masterplan__logo_icon">
+                    <div class="masterplan__logo_content">
+                        <h2 class="masterplan__logo_title">MASTERPLAN</h2>
+                        <h3 class="masterplan__logo_subitle">Superficie y cantidades generales.</h3>
+                    </div>
+                </div>
+                <img src="./images/plano.png" alt="Master plan de Hexaparks" class="masterplan__mapa">
+                <div class="tablas-general">
+                    <table class="masterplan__tabla-terreno table" border="1">
+                     
+                        <tbody>
+                          <tr>
+                            <td>Terreno F1</td>
+                            <td>20,187.04</td>
+                            
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td>Terreno F2</td>
+                            <td>37,141.93</td>
+                         
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Superficie total</strong></td>
+                            <td><strong>57,328.97</strong></td>
+                           
+                            <td><strong>m2</strong></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="masterplan__tabla-vialidades table" border="1">
+                        
+                        <tbody>
+                          <tr>
+                            <td>Vialidades F1</td>
+                            <td>4,173.15</td>
+                            
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td>Vialidades F2</td>
+                            <td>8,006.90</td>
+                           
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td>Rampas/andadores/guarniciones</td>
+                            <td>5,924.85</td>
+                           
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td>Áreas verdes</td>
+                            <td>430.40</td>
+                            
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td>Caseta de vigilancia</td>
+                            <td>23.65</td>
+                            
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td>Business Center</td>
+                            <td>650.00</td>
+                            
+                            <td>m2</td>
+                          </tr>
+                          <tr>
+                            <td>Estacionamiento para visitantes</td>
+                            <td>29</td>
+                            
+                            <td>cajones</td>
+                          </tr>
+                          <tr>
+                            <td>Ciclopuertos</td>
+                            <td>15</td>
+                           
+                            <td>ciclopuertos</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                </div>
+                <div class="tablas-naves">
+                    <table class="masterplan__tabla-terreno nave-table">
+                        <thead>
+                          <tr>
+                            <th>FASES</th>
+                            <th>Terreno m²</th>
+                            <th>m² nave</th>
+                            <th>m² oficinas</th>
+                            <th>m² construidos</th>
+                            <th>$ m² construido</th>
+                            <th>$ de lista</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="fase-header"><td colspan="7">FASE 1</td></tr>
+                          <tr><td>Nave 1</td><td>950.03</td><td>802.85</td><td>191.23</td><td>994.08</td><td>$17,500.00</td><td>$17,396,400.00</td></tr>
+                          <tr><td>Nave 2</td><td>1,234.33</td><td>1,094.97</td><td>211.08</td><td>1,306.05</td><td>$17,500.00</td><td>$22,855,875.00</td></tr>
+                          <tr><td>Nave 3</td><td>1,269.60</td><td>1,130.25</td><td>211.08</td><td>1,341.33</td><td>$17,500.00</td><td>$23,473,275.00</td></tr>
+                          <tr><td>Nave 4</td><td>1,304.87</td><td>1,165.51</td><td>211.08</td><td>1,376.59</td><td>$17,500.00</td><td>$24,090,325.00</td></tr>
+                          <tr><td>Nave 5</td><td>1,340.14</td><td>1,200.79</td><td>211.08</td><td>1,411.87</td><td>$17,500.00</td><td>$24,707,725.00</td></tr>
+                          <tr><td>Nave 6</td><td>1,375.34</td><td>1,236.00</td><td>211.08</td><td>1,447.08</td><td>$17,500.00</td><td>$25,323,900.00</td></tr>
+                          <tr><td>Nave 7</td><td>1,531.62</td><td>1,390.91</td><td>218.20</td><td>1,609.11</td><td>$17,500.00</td><td>$28,159,425.00</td></tr>
+                          <tr><td>Nave 8</td><td>1,362.34</td><td>1,226.25</td><td>203.66</td><td>1,429.91</td><td>$17,500.00</td><td>$25,023,425.00</td></tr>
+                          <tr><td>Nave 9</td><td>1,362.34</td><td>1,226.25</td><td>203.66</td><td>1,429.91</td><td>$17,500.00</td><td>$25,023,425.00</td></tr>
+                          <tr><td>Nave 10</td><td>1,362.34</td><td>1,226.25</td><td>203.66</td><td>1,429.91</td><td>$17,500.00</td><td>$25,023,425.00</td></tr>
+                          <tr><td>Nave 11</td><td>1,362.34</td><td>1,226.25</td><td>203.66</td><td>1,429.91</td><td>$17,500.00</td><td>$25,023,425.00</td></tr>
+                          <tr><td>Nave 12</td><td>1,294.96</td><td>1,164.19</td><td>194.45</td><td>1,358.64</td><td>$17,500.00</td><td>$23,776,200.00</td></tr>
+                  
+                          <tr class="fase-header"><td colspan="7">FASE 2</td></tr>
+                          <tr><td>Nave 13</td><td>1,077.43</td><td>927.10</td><td>206.54</td><td>1,133.64</td><td>$17,500.00</td><td>$19,838,700.00</td></tr>
+                          <tr><td>Nave 14</td><td>1,232.02</td><td>1,087.82</td><td>217.92</td><td>1,305.74</td><td>$17,500.00</td><td>$22,850,450.00</td></tr>
+                          <tr><td>Nave 15</td><td>1,232.02</td><td>1,087.82</td><td>217.92</td><td>1,305.74</td><td>$17,500.00</td><td>$22,850,450.00</td></tr>
+                          <tr><td>Nave 16</td><td>1,232.02</td><td>1,087.82</td><td>217.92</td><td>1,305.74</td><td>$17,500.00</td><td>$22,850,450.00</td></tr>
+                          <tr><td>Nave 17</td><td>1,232.02</td><td>1,087.82</td><td>217.92</td><td>1,305.74</td><td>$17,500.00</td><td>$22,850,450.00</td></tr>
+                          <tr><td>Nave 18</td><td>1,232.02</td><td>1,087.82</td><td>217.92</td><td>1,305.74</td><td>$17,500.00</td><td>$22,850,450.00</td></tr>
+                          <tr><td>Nave 19</td><td>1,382.85</td><td>1,245.10</td><td>213.62</td><td>1,458.72</td><td>$17,500.00</td><td>$25,527,600.00</td></tr>
+                          <tr><td>Nave 20</td><td>1,225.00</td><td>1,091.12</td><td>200.04</td><td>1,291.16</td><td>$17,500.00</td><td>$22,595,300.00</td></tr>
+                          <tr><td>Nave 21</td><td>1,225.00</td><td>1,091.12</td><td>200.04</td><td>1,291.16</td><td>$17,500.00</td><td>$22,595,300.00</td></tr>
+                          <tr><td>Nave 22</td><td>1,225.00</td><td>1,091.12</td><td>200.04</td><td>1,291.16</td><td>$17,500.00</td><td>$22,595,300.00</td></tr>
+                          <tr><td>Nave 23</td><td>1,225.00</td><td>1,091.12</td><td>200.04</td><td>1,291.16</td><td>$17,500.00</td><td>$22,595,300.00</td></tr>
+                          <tr><td>Nave 24</td><td>1,225.00</td><td>1,091.12</td><td>200.04</td><td>1,291.16</td><td>$17,500.00</td><td>$22,595,300.00</td></tr>
+                          <tr><td>Nave 25</td><td>1,396.84</td><td>1,230.32</td><td>209.69</td><td>1,440.01</td><td>$17,500.00</td><td>$25,200,175.00</td></tr>
+                          <tr><td>Nave 26</td><td>1,215.00</td><td>1,081.97</td><td>198.57</td><td>1,280.54</td><td>$17,500.00</td><td>$22,409,450.00</td></tr>
+                          <tr><td>Nave 27</td><td>1,215.00</td><td>1,081.97</td><td>198.57</td><td>1,280.54</td><td>$17,500.00</td><td>$22,409,450.00</td></tr>
+                          <tr><td>Nave 28</td><td>1,215.00</td><td>1,081.97</td><td>198.57</td><td>1,280.54</td><td>$17,500.00</td><td>$22,409,450.00</td></tr>
+                          <tr><td>Nave 29</td><td>1,215.00</td><td>1,081.97</td><td>198.57</td><td>1,280.54</td><td>$17,500.00</td><td>$22,409,450.00</td></tr>
+                          <tr><td>Nave 30</td><td>2,545.83</td><td>2,156.83</td><td>250.32</td><td>2,407.15</td><td>$17,500.00</td><td>$42,125,125.00</td></tr>
+                          <tr><td>Nave 31</td><td>3,455.27</td><td>3,228.06</td><td>240.02</td><td>3,468.08</td><td>$17,500.00</td><td>$60,691,400.00</td></tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="masterplan__button">CONTÁCTANOS</div>
+                <div class="masterplan__avances">
+                    <div class="masterplan__avances_content">
+                        <div class="masterplan__avances_container"><h2 class="masterplan__avances_title">¡VE LOS AVANCES EN TIEMPO REAL!</h2>
+                        <h3 class="masterplan__avances_subtitle">Solicita la clave de acceso a tu vendedor</h3>
+                    </div>
+                    <div class="masterplan__avances_link">
+                        <div class="masterplan__avances_link-button">VER AVANCES DE OBRA</div>
+                    </div>
+                </div>
+            </section>
+            <section class="features">
+                <div class="features__images">
+                    <img class=features__images_hexanave src="./images/hexanave.png" alt="Imagen de nave industrial hexaparks">
+                    <img class=features__images_hexagono src="./images/hexagono.png" alt="Imagen hexagono hexaparks">
+
+
+                </div>
+                <div class="features__toggle">
+                    <H1 class="features__toggle-title">Características importantes</H1>
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+                            <img class="toggle-icon" src="../images/plus.png" alt="Expand section">
+                        </button>                        
+<h2 class="toggle-title">1. Diseño Modular y Flexible</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Espacios adaptables a diferentes tipos de operaciones industriales (almacenaje, producción, manufactura).</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">2. Altura Libre Interior</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Permite el uso de estanterías altas, maquinaria, y la circulación de equipos pesados sin obstáculos.</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">3. Accesibilidad y Conectividad</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Ubicación estratégica cerca de principales vías de comunicación y transporte (autopistas, puertos, etc.).</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">4. Seguridad</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Sistema de vigilancia 24/7, control de acceso, alarma contra incendios, y zonas de protección.</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">5. Diseño Eficiente de Espacios</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Maximización del uso de la superficie con una distribución de áreas productivas, oficinas, áreas de descanso, y baños.</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">6. Condiciones Ambientales</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Control de temperatura y humedad, adaptado según la industria (por ejemplo, sistemas de ventilación o aire acondicionado si es necesario).</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">7. Sostenibilidad</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Uso de materiales ecológicos, reciclaje de aguas pluviales, soluciones para reducción de huella de carbono, y eficiencia energética (paneles solares, etc.).</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">8. Estilo Arquitectónico</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Estética moderna y funcional, combinando elementos que den una imagen profesional y sólida a la empresa.</p>
+                      </div>
+                    </div>
+                  
+                    <div class="toggle-item">
+                      <div class="toggle-header">
+                        <button class="toggle-btn" aria-expanded="false">
+  <img class="toggle-icon" 
+       src="../images/plus.png" 
+       alt="Expand section">
+</button>                        <h2 class="toggle-title">9. Acceso a Servicios Comunes</h2>
+                      </div>
+                      <div class="toggle-content">
+                        <p>Áreas compartidas como comedor industrial, estacionamiento, área de descanso para choferes, etc.</p>
+                      </div>
+                    </div>
+                  </div>
+                              
+            </section>
+            <section class="contact" id="contacto">
+                <div class="contact__contactanos">CONTÁCTANOS</div>
+                <div class="contact__agenda">Agenda una visita para conocer las instalaciones</div>
+                <div class="contact__redes">
+                    <img src="./images/icono-redes.png" alt="Icono beige Hexaparks" class="contact__redes_logo">
+                    <div class="contact__redes_siguenos">Síguenos en redes @hexaparks</div>
+                </div>
+                <div class="contact__direccion">
+                    <div class="contact__direccion_title">DIRECCIÓN</div>
+                    <div class="contact__direccion_content">Carretera Tala-Santa Cruz de las Flores,
+                        45333 Tala, Jal, Mexico</div>
+                </div>
+                <div class="contact__whatsapp">
+                    <div class="contact__whatsapp_title">Whatsapp</div>
+                    <div class="contact__whatsapp_content">+52 000 0000 0000</div>
+                </div>
+                <div class="contact__email">
+                    <div class="contact__email_title">EMAIL</div>
+                    <div class="contact__email_title">info@hexaparks.com</div>
+                </div>
+            </section>
         </main>
-        <footer></footer>
+        <footer class="footer">
+            <img src="./images/logo.png" alt="">
+        </footer>
     </div>
+    <script src="../scripts/index.js"></script>
   </body>
 </html>

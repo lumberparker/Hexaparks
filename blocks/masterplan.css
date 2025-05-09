@@ -1,0 +1,244 @@
+.masterplan__logo {
+    margin-top: 64px;
+    margin-left: 77px;
+    display: flex;
+}
+.masterplan__logo_icon{
+    width: 86px;
+    height: 86px;
+}
+.masterplan__logo_content {
+    margin-left: 35px;
+    color: #000;
+    font-family: "murs", "kollektif", "arial", sans-serif;
+    margin-top: 10px;
+}
+.masterplan__logo_title {
+font-weight: 800;
+font-size: 38px;
+line-height: 39px;
+letter-spacing: 0%;
+text-align: center;
+text-transform: uppercase;
+margin-top: 0px;
+margin-bottom: 0px;
+
+}
+
+
+
+.masterplan__logo_subitle {
+font-weight: 500;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0%;
+margin-top: 6px;
+margin-bottom: 0px;
+
+}
+.tablas-general {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    width: 1150px;
+    gap: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    box-sizing: border-box;
+    margin-top: 34px;
+  }
+  
+
+  /* Terreno and Vialidades Tables */
+  .masterplan__tabla-terreno,
+  .masterplan__tabla-vialidades {
+    width: 50%;
+    height: 34px;
+    border-collapse: collapse;
+    border: 2px solid #000;
+  }
+  
+  /* Cell styling: consistent across all tables */
+  .masterplan__tabla-terreno th,
+  .masterplan__tabla-terreno td,
+  .masterplan__tabla-vialidades th,
+  .masterplan__tabla-vialidades td,
+  .nave-table th,
+  .nave-table td {
+    border: 2px solid #000;
+    padding: 4px 8px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: black;
+  }
+  
+  /* First column in terreno/vialidades has black background */
+  .masterplan__tabla-terreno th:first-child,
+  .masterplan__tabla-terreno td:first-child,
+  .masterplan__tabla-vialidades th:first-child,
+  .masterplan__tabla-vialidades td:first-child {
+    background-color: black;
+    color: #E8DEC5;
+    width: 258px;
+    text-align: left;
+    padding-left: 12px;
+  }
+  
+  /* Nave Table */
+  .nave-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #000;
+    width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 34px;
+    border-collapse: collapse;
+  }
+  
+  /* First column in nave: light background */
+  .nave-table td:first-child {
+    background-color: #E8DEC5;
+    color: black;
+    width: 258px;
+    text-align: left;
+    padding-left: 12px;
+    
+    
+  }
+  
+  /* Fase header rows */
+  .nave-table .fase-header td,
+  .nave-table .fase-header th {
+    background-color: black;
+    color: #E8DEC5;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 12px;
+    line-height: 34px;
+  }
+  
+  /* Total row styling */
+  .nave-table .total-row td {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: right;
+    line-height: 34px;
+  }
+  
+  /* Table headers */
+  .nave-table thead td,
+  .nave-table thead th {
+    background-color: #E8DEC5;
+    color: black;
+  }
+/* Primera celda de la tabla naves en rojo */
+.nave-table th:first-child {
+    background-color: #E8DEC5 !important;
+    color:#000;           /* para que el texto se lea mejor */
+    border: none !important;/* opcional: elimina bordes si prefieres */
+    border-top: none;
+  }
+  .masterplan__button{
+    margin-top: 44px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;    /* vertical centering */
+    justify-content: center; /* horizontal centering (you already have text-align:center, but this keeps your icon/text perfectly centered) */
+    height: 56px;
+    width: 221px;
+    height: 56px;
+    width: 221px;
+    background-color: black;
+    color: white;
+    font-family: "kollektif", "arial", sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 34px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+
+  }
+  .masterplan__avances{
+    display: flex;
+    flex-direction: row;
+   
+  
+    margin-left: 55px;
+    margin-right: 55px;
+    margin-bottom: 47px;
+   
+  }
+
+.masterplan__avances_content {
+display: flex;
+    background-color: #564F37;
+    width: 1178px;
+    height: 246px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    margin-top: 80px;
+  }
+
+.masterplan__avances_container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    border-radius: 20px;
+    color: #E8DEC5;
+    
+}
+.masterplan__avances_title {
+font-family: "kollektif", "arial", sans-serif;
+font-weight: 500;
+font-size: 40px;
+line-height: 100%;
+letter-spacing: 0%;
+width: 431px;
+margin-top: 0;
+margin-bottom: 35px;
+
+}
+
+.masterplan__avances_subtitle {
+font-family: "kollektif", "arial", sans-serif;
+font-weight: 500;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0%;
+width: 431px;
+margin-top: 0;
+margin-bottom: 0;
+
+}
+
+.masterplan__avances_link {
+    background-image: url("../images/nave-fondo.png");
+    background-size: cover;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+
+.masterplan__avances_link-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;    width: 270px;
+    height: 56px;
+    background-color:#C94D41;
+    cursor: pointer;
+    
+
+}
