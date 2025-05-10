@@ -36,6 +36,12 @@ margin-top: 6px;
 margin-bottom: 0px;
 
 }
+
+.masterplan__mapa {
+  max-width: 1280px;
+  }
+  
+  /* General styling for all tables */
 .tablas-general {
     display: flex;
     flex-direction: row;
