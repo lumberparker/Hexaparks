@@ -78,7 +78,9 @@ text-transform: uppercase;
 
 }
 
-.contact__direccion_content {}
+.contact__direccion_content {
+    font-weight: bold;
+}
 
 .contact__whatsapp {
     grid-area: 3/ 3 / 4 / 4;
@@ -96,6 +98,7 @@ text-transform: uppercase;
 .contact__whatsapp_title {}
 
 .contact__whatsapp_content {
+    font-weight: bold;
   
 }
 
@@ -112,4 +115,9 @@ text-transform: uppercase;
     gap: 10px;
 }
 
-.contact__email_title {}
+.contact__email_title {
+   
+}
+.contact__email_content {
+    font-weight: bold;
+}
