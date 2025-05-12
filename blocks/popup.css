@@ -24,7 +24,7 @@
     background: #212121;
     max-width: 500px;
     color:#E8DEC5;
-
+overflow-y: scroll;
     width: 470px;
     height: 381px;
     padding: 1.5rem;
@@ -42,16 +42,28 @@
     color:#E8DEC5;
 
   }
-  /* 3. Botón de cerrar */
   .popup__close {
+    display: none;
     position: relative;
-    top: -240px;
-    right: -560px;
+    top: 0; right: 0;
+    width: 32px;
+    height: 32px;
     background: #C94D41;
-z-index: 1001;
     border: none;
+    border-radius: 0 8px 0 8px;
     cursor: pointer;
+    z-index: 1001;
+    color: #fff;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  
+  
+  
   
   /* 4. Ajustes de título y contenido */
   .popup__title {
@@ -62,4 +74,3 @@ z-index: 1001;
     margin: 1rem 0 0;
     font-size: 1rem;
   }
-  

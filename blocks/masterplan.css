@@ -189,8 +189,9 @@ margin-bottom: 0px;
   display: flex;
     background-color: #564F37;
     width: 90vw;
-    height: 246px;
-   
+    height: auto;
+   margin-left: auto;
+    margin-right: auto;
     border-radius: 20px;
     margin-top: 80px;
   }
@@ -201,9 +202,10 @@ margin-bottom: 0px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-padding: 10px;
+
     border-radius: 20px;
     color: #E8DEC5;
+    height: 350px;
     
 }
 .masterplan__avances_title {
@@ -253,18 +255,21 @@ text-align: center;
     
 
 }
+@media screen and (max-width: 1150px){
+  .tablas-general{
+    flex-direction: column;
+    padding-left: 12px;
+        padding-right: 12px;
+        box-sizing: border-box;
+        width: 100%;
+  
+  
+  }
+}
 @media screen and (max-width: 768px) {
   
 
-.tablas-general{
-  flex-direction: column;
-  padding-left: 12px;
-      padding-right: 12px;
-      box-sizing: border-box;
-      width: 100%;
 
-
-}
 .tablas-naves{
   overflow-x: scroll;
 }
@@ -287,6 +292,7 @@ text-align: center;
     display: flex;
     border-radius: 20px;
     color: #E8DEC5;
+    ;
    
     
 }

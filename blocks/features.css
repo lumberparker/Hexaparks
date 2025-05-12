@@ -25,9 +25,8 @@
   display: flex;
   flex-direction: column;      /* stack them top-to-bottom */
   align-items: center;         /* center each item on the horizontal axis */
-  justify-content: space-between;
+  justify-content: center;
   gap: 25px;
-  margin-bottom: 115px;
   margin-left: 118px;
 
 }

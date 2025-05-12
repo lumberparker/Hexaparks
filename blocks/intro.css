@@ -11,14 +11,13 @@
 }
 
 .intro__title {
-  width: 90vw;
   max-width: 1000px;
   
-  margin-left: 5vw;
+  margin-left: 4vw;
   font-family: "kollektif", "arial", sans-serif;
   color: #000;
   font-weight: 800;
-  font-size: 5vw;
+  font-size: 4vw;
   line-height: 100%;
   letter-spacing: 0%;
   text-transform: uppercase;
