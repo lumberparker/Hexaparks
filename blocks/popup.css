@@ -1,0 +1,65 @@
+/* popups.css */
+
+/* 1. Ocultar todos los popups por defecto */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    
+  }
+  
+  /* 2. Contenedor interno del popup + lista*/
+  .popup__container {
+    font-family: "kollektif", "arial", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    border: #E8DEC5 2px solid;
+    background: #212121;
+    max-width: 500px;
+    color:#E8DEC5;
+
+    width: 470px;
+    height: 381px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+  }
+  .popup__list {
+    font-family: "kollektif", "arial", sans-serif;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color:#E8DEC5;
+
+  }
+  /* 3. Botón de cerrar */
+  .popup__close {
+    position: relative;
+    top: -240px;
+    right: -560px;
+    background: #C94D41;
+z-index: 1001;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* 4. Ajustes de título y contenido */
+  .popup__title {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+  .popup__content {
+    margin: 1rem 0 0;
+    font-size: 1rem;
+  }
+  

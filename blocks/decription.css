@@ -1,27 +1,30 @@
 .description {
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
     height:827px;
     background-color: black;
     padding-top: 13px;
     padding-bottom: 60px;
-   
 }
 
 .description__top {
+    width: 90vw;
+    max-width: 1102px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
     height: 148px;
     border-bottom-width: 3px;
     border-bottom-style: solid;
     border-bottom-color: #E8DEC5;
     display: flex;
-    width: 1102px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-  
-   
-
 }
 
 .description__top_area {
@@ -34,9 +37,8 @@
     display: flex;
     align-items: center;
     gap:21px
-    
-
 }
+
 .description__top_numbers{
     font-family: "kollektif", "arial", sans-serif;
     color: #E8DEC5;
@@ -44,10 +46,9 @@
     font-size: 100px;
     line-height: 100%;
     letter-spacing: 0%;
-    
-        
-    }
-    .description__top_text{
+}
+
+.description__top_text{
     font-family: "kollektif", "arial", sans-serif;
     color: #E8DEC5;
     font-weight: 500;
@@ -56,23 +57,26 @@
     letter-spacing: 0%;
     width: 160px;
     height: 63px;
-    
-    }
+}
+
 .description__grid {
+    width: 1100px;
+  
+    margin-left: auto;
+    margin-right: auto;
+ 
     display: grid;
-    height: 560px;
+    height: 480px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 20%);
-    margin-left: 70px;
-    margin-right: 70px;
     margin-top: 45px;
-   
     gap:16px;
     font-family: "kollektif", "arial", sans-serif;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 1.5vw;
     line-height: 34px;
     text-transform: uppercase;
+
   
 }
 
@@ -85,19 +89,20 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     border-radius: 5px;
+    cursor: pointer;
 }
+
 .description__icon_naves{
     width: 70px;
     height: 80px;
     grid-area: 1 / 3 / 2 / 4 ;
-   
 }
+
 .description__naves{
     width: 70px;
     grid-area: 3/1/4/4;
-    
-    
 }
+
 .description__grid_seguridad {
     background-color: #564F37;
     color: #E8DEC5;
@@ -107,17 +112,19 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     border-radius: 5px;
-    
+    cursor: pointer;
 }
+
 .description__icon_seguridad{
     width: 61px;
     height: 65px;
     grid-area: 3/ 1 / 4 / 2 ;
+}
 
-}
 .description__seguridad{
-    grid-area: 1/ 2 / 3 / 4 ;
+    grid-area: 1/ 1.5 / 3 / 4 ;
 }
+
 .description__grid_infraestructura {
     background-color: #C94D41;
     color: #000;
@@ -127,13 +134,13 @@
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-   
-    
+    cursor: pointer;
+    text-align: right;
 }
+
 .description__icon_infraestructura{
     width: 58px;
     height: 66px;
-  
 }
 
 .description__grid_operacion {
@@ -145,22 +152,21 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, 1fr);
     border-radius: 5px;
-   
-
+    overflow-wrap: break-word;
+    cursor: pointer;
 }
+
 .description__icon_operacion{
     width: 51px;
     height: 103px;
     height: 80px;
     grid-area: 1 / 5 / 3 / 6 ;
-    
-
 }
+
 .description__operacion{
-
     grid-area: 3 / 1 / 4 / 5 ;
-    
 }
+
 .description__grid_servicios {
     background-color:#524239;
     color: #E8DEC5;
@@ -170,18 +176,19 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     border-radius: 5px;
+    cursor: pointer;
 }
+
 .description__icon_servicios{
     width: 73px;
     height: 70px;
     grid-area: 1/ 1 / 2 / 2 ;
-   
 }
+
 .description__servicios{
     grid-area: 2/ 3 / 3 / 4 ;
-  
-    
 }
+
 .description__grid_business {
     background-color: #564F37;
     color: #E8DEC5;
@@ -191,19 +198,19 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     border-radius: 5px;
-
+    cursor: pointer;
 }
+
 .description__icon_business{
     width: 77px;
     height: 87px;
     grid-area: 3/3/4/4;
-   
 }
+
 .description__business{
     grid-area: 1/ 1 / 2 / 3 ;
-    
-    
 }
+
 .description__grid_sostenibilidad {
     background-color: #E8DEC5;
     color: #000;
@@ -214,13 +221,14 @@
     justify-content: space-around;
     align-items: center;
     border-radius: 5px;
-
+    cursor: pointer;
 }
+
 .description__icon_sostenibilidad{
     width: 73px;
     height: 63px;
-
 }
+
 .description__grid_ubicacion {
     background-color: #C94D41;
     color: #000;
@@ -230,11 +238,91 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    border-radius: 5px;
-
+    border-radius: 5px;    
+    cursor: pointer;
+    text-align: right;
 }
+
 .description__icon_ubicacion{
     width: 60px;
     height: 80px;
-    
 }
+
+@media screen and (max-width: 1099px) {
+   
+    .description {
+        width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+  
+    .description__grid {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin: 20px 16px;
+        gap: 16px;
+    }
+    .description__grid > div {
+        height: auto;
+        padding: 16px;
+        font-size: 20px;
+        line-height: 28px;
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+    }
+    .description__grid img,
+    .description__icon_naves,
+    .description__icon_seguridad,
+    .description__icon_infraestructura,
+    .description__icon_operacion,
+    .description__icon_servicios,
+    .description__icon_business,
+    .description__icon_sostenibilidad,
+    .description__icon_ubicacion {
+        height: 60px;
+        width: auto;
+        flex-shrink: 0;
+    }
+    .description__grid_naves,
+    .description__grid_seguridad,
+    .description__grid_infraestructura,
+    .description__grid_operacion,
+    .description__grid_servicios,
+    .description__grid_business,
+    .description__grid_sostenibilidad,
+    .description__grid_ubicacion {
+        flex: 1;
+        text-align: left;
+        font-size: .1em;
+        height: 156px;
+    }
+    .description__ naves{
+        width:500px
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .description__top {
+        width: 100vw;
+        max-width: 100vw;
+        padding-left: 30px;
+            height: auto;
+            text-align: right;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: #E8DEC5;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 25px;
+    }

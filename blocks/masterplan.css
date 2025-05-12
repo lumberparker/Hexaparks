@@ -1,5 +1,9 @@
+.masterplan{
+  background-color: #E8DEC5;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
 .masterplan__logo {
-    margin-top: 64px;
     margin-left: 77px;
     display: flex;
 }
@@ -174,10 +178,10 @@ margin-bottom: 0px;
     display: flex;
     flex-direction: row;
    
+  background-color:#E8DEC5;
   
     margin-left: 55px;
     margin-right: 55px;
-    margin-bottom: 47px;
    
   }
 
@@ -195,7 +199,7 @@ display: flex;
 .masterplan__avances_container{
     width: 50%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
   
@@ -247,4 +251,80 @@ margin-bottom: 0;
     cursor: pointer;
     
 
+}
+@media screen and (max-width: 768px) {
+  
+}
+.tablas-general{
+  flex-direction: column;
+}
+.tablas-naves{
+  overflow-x: scroll;
+}
+.masterplan__mapa {
+  width: 100vw;
+  }
+  .masterplan__avances_content{
+ display: block;
+  }
+  .masterplan__avances_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    color: #E8DEC5;
+    padding: 5px;
+    
+}
+.masterplan__avances_title {
+font-family: "kollektif", "arial", sans-serif;
+font-weight: 500;
+font-size: 40px;
+line-height: 100%;
+letter-spacing: 0%;
+width: 431px;
+margin-top: 0;
+margin-bottom: 35px;
+text-align: center;
+
+}
+
+.masterplan__avances_subtitle {
+font-family: "kollektif", "arial", sans-serif;
+font-weight: 500;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0%;
+width: 431px;
+margin-top: 0;
+margin-bottom: 0;
+text-align: center;
+
+}
+
+.masterplan__avances_link {
+    background-image: url("../images/nave-fondo.png");
+    background-size: cover;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;    
+}
+
+.masterplan__avances_link-button {
+   margin-left: auto;
+   margin-right: auto;
+  display: flex;
+    justify-content: center;
+    align-items: center;    width: 270px;
+    height: 56px;
+    background-color:#C94D41;
+    cursor: pointer;
 }

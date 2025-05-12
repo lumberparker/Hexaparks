@@ -37,59 +37,211 @@
             </nav>
             
         </header>
-        <main>
+        <main class="main">
             <section class="intro">
                 <div class="intro__title">un entorno industrial listo para operar, pensado para la eficiencia, seguridad y comodidad de las empresas y su personal.</div>
                 <img class="intro__image" src="./images/main.png" alt="Imagen de nave industrial en Hexaparks">
             </section>
-            <section class="description">
-                <div class="description__top">
-                    <div class="description__top_area">
-
-                        <div class="description__top_numbers">5.71</div>
-                        <div class="description__top_text">Hectáreas de superficie</div>
-                          </div>
-                    <div class="description__top_naves">
-                        <div class="description__top_numbers">31</div>
-                        <div class="description__top_text">Naves industriales</div>
-                    </div>
-                </div>
-                <div class="description__grid"  id="amenidades">
-                    <div class="description__grid_naves">
-                        <img class="description__grid_icon description__icon_naves" src="./images/icono Naves.png" alt="Icono de Naves Industriales Funcionales">
-                        <p class="description__grid_text description__naves">Naves Industriales Funcionales</p>
-                    </div>
-                    <div class="description__grid_seguridad">
-                        <img class="description__grid_icon description__icon_seguridad" src="./images/icono seguridad.png" alt="Icono de seguridad integral">
-                        <p class="description__grid_text description__seguridad">Seguridad Integral</p>
-                    
-                    </div>
-                    <div class="description__grid_infraestructura">
-                        <img class="description__grid_icon description__icon_infraestructura" src="./images/icono Infraesctructura.png" alt="Icono de infraestructura robusta">
-                        <p class="description__grid_text description__seguridad">Infraestructura Robusta</p>
-                    </div>
-                    <div class="description__grid_operacion">
-                        <img class="description__grid_icon description__icon_operacion" src="./images/icono operacion.png" alt="Icono de operacion logistica y servicios para transporte">
-                        <p class="description__grid_text description__operacion">Operación Logística y Servicios para Transporte</p>
-                    </div>
-                    <div class="description__grid_servicios">
-                        <img class="description__grid_icon description__icon_servicios" src="./images/icono servicios.png" alt="Icono de operacion Servicios y Tecnología">
-                        <p class="description__grid_text description__servicios">Servicios y Tecnología</p>
-                    
-                    </div>
-                    <div class="description__grid_business">
-                        <img class="description__grid_icon description__icon_business" src="./images/icono business.png" alt="Icono de Business Center">
-                        <p class="description__grid_text description__business">Business Center</p>
-                    </div>
-                    <div class="description__grid_sostenibilidad">
-                        <img class="description__grid_icon description__icon_sostenibilidad" src="./images/icono sostenibilidad.png" alt="Icono de operacion Sostenibilidad y Bienestar">
-                        <p class="description__grid_text description__seguridad">Sostenibilidad y Bienestar</p></div>
-                    <div class="description__grid_ubicacion" >
-                        <img class="description__grid_icon description__icon_ubicacion" src="./images/icono ubicacion.png" alt="Icono de operacion Ubicación Estratégica">
-                        <p class="description__grid_text description__seguridad">Ubicación Estratégica</p></div>
-                </div>
-
-            </section>
+            <!-- Descripción general -->
+        <section class="description">
+            <div class="description__top">
+              <div class="description__top_area">
+                <div class="description__top_numbers">5.71</div>
+                <div class="description__top_text">Hectáreas de superficie</div>
+              </div>
+              <div class="description__top_naves">
+                <div class="description__top_numbers">31</div>
+                <div class="description__top_text">Naves industriales</div>
+              </div>
+            </div>
+  
+          <section class="description" id="amenidades">
+            <div class="description__grid">
+              <div class="description__grid_naves" data-popup="popup__naves">
+                <img
+                  class="description__grid_icon description__icon_naves"
+                  src="./images/icono Naves.png"
+                  alt="Icono de Naves Industriales Funcionales"
+                />
+                <p class="description__grid_text description__naves">Naves Industriales Funcionales</p>
+              </div>
+              <div class="description__grid_seguridad" data-popup="popup__seguridad">
+                <img
+                  class="description__grid_icon description__icon_seguridad"
+                  src="./images/icono seguridad.png"
+                  alt="Icono de Seguridad Integral"
+                />
+                <p class="description__grid_text description__seguridad">Seguridad Integral</p>
+              </div>
+              <div class="description__grid_infraestructura" data-popup="popup__infraestructura">
+                <img
+                  class="description__grid_icon description__icon_infraestructura"
+                  src="./images/icono Infraesctructura.png"
+                  alt="Icono de Infraestructura Robusta"
+                />
+                <p class="description__grid_text description__infraestructura">Infraestructura Robusta</p>
+              </div>
+              <div class="description__grid_operacion" data-popup="popup__operacion">
+                <img
+                  class="description__grid_icon description__icon_operacion"
+                  src="./images/icono operacion.png"
+                  alt="Icono de Operación Logística y Servicios para Transporte"
+                />
+                <p class="description__grid_text description__operacion">
+                  Operación Logística y Servicios para Transporte
+                </p>
+              </div>
+              <div class="description__grid_servicios" data-popup="popup__servicios">
+                <img
+                  class="description__grid_icon description__icon_servicios"
+                  src="./images/icono servicios.png"
+                  alt="Icono de Servicios y Tecnología"
+                />
+                <p class="description__grid_text description__servicios">Servicios y Tecnología</p>
+              </div>
+              <div class="description__grid_business" data-popup="popup__business">
+                <img
+                  class="description__grid_icon description__icon_business"
+                  src="./images/icono business.png"
+                  alt="Icono de Business Center"
+                />
+                <p class="description__grid_text description__business">Business Center</p>
+              </div>
+              <div class="description__grid_sostenibilidad" data-popup="popup__sostenibilidad">
+                <img
+                  class="description__grid_icon description__icon_sostenibilidad"
+                  src="./images/icono sostenibilidad.png"
+                  alt="Icono de Sostenibilidad y Bienestar"
+                />
+                <p class="description__grid_text description__sostenibilidad">
+                  Sostenibilidad y Bienestar
+                </p>
+              </div>
+              <div class="description__grid_ubicacion" data-popup="popup__ubicacion">
+                <img
+                  class="description__grid_icon description__icon_ubicacion"
+                  src="./images/icono ubicacion.png"
+                  alt="Icono de Ubicación Estratégica"
+                />
+                <p class="description__grid_text description__ubicacion">Ubicación Estratégica</p>
+              </div>
+            </div>
+  
+           <!-- Popups -->
+<div class="popup popup__naves">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Naves Industriales Funcionales</h3>
+      <ul class="popup__list">
+        <li>Naves totalmente construidas</li>
+        <li>Diseño modular y flexible</li>
+        <li>Áreas amplias para almacenamiento, manufactura o piso de producción</li>
+        <li>Oficinas administrativas integradas</li>
+        <li>Baños equipados</li>
+        <li>Rampas de acceso para tráileres</li>
+        <li>Cajones de estacionamiento para usuarios</li>
+        <li>Conexión a red contra incendios central</li>
+        <li>Terrenos disponibles de 900, 1,200, 1,300, 2,000 y 3,000 m²</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="popup popup__infraestructura">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Infraestructura Robusta</h3>
+      <ul class="popup__list">
+        <li>Vialidades y andadores de concreto hidráulico, ideales para tránsito pesado</li>
+        <li>Canal pluvial que garantiza seguridad ante lluvias e inundaciones</li>
+        <li>Cuarto de máquinas y cuartos eléctricos a nivel campus</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="popup popup__operacion">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Operación Logística y Servicios para Transporte</h3>
+      <ul class="popup__list">
+        <li>Área de descanso para choferes con baños completos</li>
+        <li>Espacio dedicado para resguardo de contenedores, con posibilidad de reserva</li>
+        <li>Vialidades internas amplias para maniobras eficientes</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="popup popup__business">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Business Center</h3>
+      <ul class="popup__list">
+        <li>Recepción general y atención a visitantes</li>
+        <li>Área de coworking para usuarios y personal administrativo</li>
+        <li>Salas de juntas equipadas</li>
+        <li>Comedor industrial</li>
+        <li>Área de comedor con microondas y hornos eléctricos, disponible para todos los usuarios del parque</li>
+        <li>Cajones de estacionamiento para usuarios y visitantes</li>
+        <li>Ciclopuertos</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="popup popup__servicios">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Servicios y Tecnología</h3>
+      <ul class="popup__list">
+        <li>Red eléctrica de media y alta tensión</li>
+        <li>Agua potable y drenaje sanitario</li>
+        <li>Conectividad por fibra óptica</li>
+        <li>Preparación para sistemas de videovigilancia y control de acceso</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="popup popup__seguridad">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Seguridad Integral</h3>
+      <ul class="popup__list">
+        <li>Acceso controlado 24/7</li>
+        <li>Vigilancia con CCTV en puntos estratégicos</li>
+        <li>Iluminación en vialidades y perímetro</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="popup popup__sostenibilidad">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Sostenibilidad y Bienestar</h3>
+      <ul class="popup__list">
+        <li>Áreas verdes de amortiguamiento</li>
+        <li>Manejo responsable de residuos</li>
+        <li>Preparación para energías limpias (opcional)</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="popup popup__ubicacion">
+    <div class="popup__container">
+      <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+      <h3 class="popup__title">Ubicación Estratégica</h3>
+      <ul class="popup__list">
+        <li>Conectado con corredores industriales y logísticos clave</li>
+        <li>Acceso rápido a vialidades primarias</li>
+      </ul>
+    </div>
+  </div>
+  
+            <div class="popup popup__ubicacion">
+              <button class="popup__close"><img src="./images/close.png" alt="Cerrar" /></button>
+              <div class="popup__container">
+                <h3 class="popup__title">Ubicación Estratégica</h3>
+                <p class="popup__content">Descripción detallada de ubicación estratégica.</p>
+              </div>
+            </div>
+          </section>
             <section class="location">
                 
                 <img src="./images/mapa ubicacion.png" alt="Mapa de ubicación de Hexaparks" class="location__map">
@@ -403,6 +555,8 @@
             <img src="./images/logo.png" alt="">
         </footer>
     </div>
+    <script src="./scripts/amenidades.js"></script>
+
     <script src="../scripts/index.js"></script>
   </body>
 </html>

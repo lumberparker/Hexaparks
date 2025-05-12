@@ -123,3 +123,26 @@ text-transform: uppercase;
 .contact__email_content {
     font-weight: bold;
 }
+@media screen and (max-width: 768px) {
+    .contact {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 24px; /* reduce horizontal padding but keep spacing */
+      gap: 24px;
+    }
+  
+    .contact__contactanos,
+    .contact__agenda,
+    .contact__redes,
+    .contact__direccion,
+    .contact__whatsapp,
+    .contact__email {
+      grid-area: unset;
+      width: 100%;
+    }
+  
+    .contact__redes {
+      justify-content: flex-start;
+    }
+  }
+  
