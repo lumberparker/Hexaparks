@@ -258,6 +258,8 @@ text-align: center;
 
 .tablas-general{
   flex-direction: column;
+  overflow-x: scroll;
+
 }
 .tablas-naves{
   overflow-x: scroll;
