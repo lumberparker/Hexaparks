@@ -267,6 +267,8 @@ margin-bottom: 0;
   }
   .masterplan__avances_content{
  display: block;
+ margin-left:auto ;
+ margin-right: auto;
   }
   .masterplan__avances_container{
     display: flex;
