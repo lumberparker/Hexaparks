@@ -17,7 +17,7 @@
   font-family: "kollektif", "arial", sans-serif;
   color: #000;
   font-weight: 800;
-  font-size: 4vw;
+  font-size: 2vw;
   line-height: 100%;
   letter-spacing: 0%;
   text-transform: uppercase;
@@ -32,6 +32,7 @@
   margin: 0;
   margin-left: 0;
   box-sizing: border-box;
+  filter: grayscale(100%);
 }
 
 @media screen and (max-width: 768px) {

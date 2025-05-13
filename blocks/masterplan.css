@@ -82,6 +82,8 @@ margin-bottom: 0px;
     line-height: 34px;
     text-align: center;
     color: black;
+    width: 30px;
+
   }
   
   /* First column in terreno/vialidades has black background */
@@ -91,7 +93,7 @@ margin-bottom: 0px;
   .masterplan__tabla-vialidades td:first-child {
     background-color: black;
     color: #E8DEC5;
-    width: 258px;
+    width: 100px;
     text-align: left;
     padding-left: 12px;
   }
@@ -144,7 +146,7 @@ margin-bottom: 0px;
     background-color: #E8DEC5;
     color: black;
   }
-/* Primera celda de la tabla naves en rojo */
+/* Primera celda de la tabla naves en negro */
 .nave-table th:first-child {
     background-color: #E8DEC5 !important;
     color:#000;           /* para que el texto se lea mejor */
@@ -177,11 +179,10 @@ margin-bottom: 0px;
   .masterplan__avances{
     display: flex;
     flex-direction: row;
-   
-  background-color:#E8DEC5;
-  
+    background-color:#E8DEC5;
     margin-left: 55px;
     margin-right: 55px;
+    display: none;
    
   }
 

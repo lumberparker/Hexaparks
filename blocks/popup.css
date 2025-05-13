@@ -24,7 +24,7 @@
     background: #212121;
     max-width: 500px;
     color:#E8DEC5;
-overflow-y: scroll;
+    overflow-y: scroll;
     width: 470px;
     height: 381px;
     padding: 1.5rem;
@@ -69,6 +69,7 @@ overflow-y: scroll;
   .popup__title {
     margin-top: 0;
     font-size: 1.25rem;
+    text-transform: uppercase;
   }
   .popup__content {
     margin: 1rem 0 0;
