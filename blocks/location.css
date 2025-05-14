@@ -1,23 +1,28 @@
-.location{
+.location {
     width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    padding-top: 60px;  
+    box-sizing: border-box;
     background-color: #C94D41;
-    padding-top: 66px;
-    padding-bottom: 74px;
-    padding-right:94px;
-    padding-left: 66px;
-   
 }
 
 
 .location__main {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center; /* This centers children vertically */
-    min-height: 120px;   /* Adjust as needed for your layout */
-   gap:62px;
-   max-width: 80vw;
-   
+    justify-content: space-around;
+    gap: 40px; /* Adjust spacing as needed */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.location__main_content,
+.location__strategic {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .location__main_title {
@@ -27,41 +32,79 @@
     color: black;
     font-weight: bold;
     text-transform: uppercase;
-    width: 535px;
+    width: 400px;
     height: 70px;
-    border-radius: 20px;
+    border-radius:15px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-wrap: nowrap;
-    padding-left: 30px;
-   padding-right: 30px;
+    padding-left: 70px;
+   padding-right: 70px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .location__main_content {
     font-family: "kollektif", Arial, Helvetica, sans-serif;
     color: black;
     font-size: 1.5vw;
+    font-weight: 400;
+    line-height:40px;
+
+
 
 }
 
 .location__map {
+    width: 100%;
+    height: auto;
 }
 
 .location__strategic {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; /* or center if you want vertical centering */
+    gap: 50px; /* Adjust spacing as needed */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .location__strategic_title {
+    font-family: "murs", Arial, Helvetica, sans-serif;
+    font-size: 2.2vw;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 400px;
+    height: 70px;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: left;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 25px;
 }
 
 .location__strategic_main {
+    font-family: "kollektif", Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 1.5vw;
+    padding: 0px;
+    line-height: 50px;
+    vertical-align: middle;
+    
+
 }
 
 .location__strategic_main ul {
-    list-style: none;
+    list-style: disc; 
+    border-left: 30px;
 }
 
 .location__strategic_main li {
@@ -71,25 +114,69 @@
     .location{
         width: 100%;
         height: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: scroll;
-    }
+        padding-bottom: 30px;
+        }
     .location__map{
-        width: 90vw;
-        height: 100vh;
+        width: 100vw;
+        height: auto;
+        margin-top: 40px;
     }
     .location__map__container{
         width: 100vw;
         height: 100vh;
     }
     .location__main {
-        display: flex;
         flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+        margin-left: auto;
+        margin-right: auto;
+      
+    }
+    .location__main_title {
+        font-size:4vw;
+        width: 60vw;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .location__main_content {
+        font-size: 3vw;
+        width: 60vw;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0px;
+        padding-right: 0px;
+        line-height: 20px;
+        border-bottom: 10px;
     }
     .location__strategic {
         display: flex;
         flex-direction: column;
+        gap: 0;
+    }
+    .location__strategic_title {
+        font-size: 4vw;
+        width: 60vw;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .location__strategic_main {
+        font-size: 3vw;
+        width: 60vw;
+        height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: 30px;
+        line-height: 20px;
     }
     
 }
