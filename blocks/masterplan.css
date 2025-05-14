@@ -4,12 +4,15 @@
   padding-bottom: 64px;
 }
 .masterplan__logo {
-    margin-left: 77px;
     display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: 77px;
+    display: none;
 }
 .masterplan__logo_icon{
-    width: 86px;
-    height: 86px;
+    width: 120px;
+    height: auto;
 }
 .masterplan__logo_content {
     margin-left: 35px;
@@ -19,7 +22,7 @@
 }
 .masterplan__logo_title {
 font-weight: 800;
-font-size: 38px;
+font-size: 2.5vw;
 line-height: 39px;
 letter-spacing: 0%;
 text-align: center;
@@ -33,7 +36,7 @@ margin-bottom: 0px;
 
 .masterplan__logo_subitle {
 font-weight: 500;
-font-size: 18px;
+font-size: 1.5vw;
 line-height: 100%;
 letter-spacing: 0%;
 margin-top: 6px;
@@ -354,4 +357,16 @@ text-align: center;
   border: 2px solid #000;
 
 }
+  .masterplan__logo {
+    gap: 12px;
+  }
+  .masterplan__logo_icon {
+    width: 60px;
+  }
+  .masterplan__logo_title {
+    font-size: 6vw;
+  }
+  .masterplan__logo_subitle {
+    font-size: 4vw;
+  }
 }
