@@ -20,7 +20,10 @@ a {
     color: #E8DEC5;
     padding-bottom: 61px;
 }
-
+.instagram{
+    width: 30px;
+    height: 30px;
+}
 .contact__contactanos {
 grid-area: 1 / 1 / 2 / 2;
 font-weight: 800;
@@ -48,20 +51,35 @@ text-transform: uppercase;
     grid-area: 4/ 1 / 5 / 2;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    vertical-align: middle;
     gap: 20px;
 
 }
-
+.contact__redes_text{
+    vertical-align: middle;
+    margin-top: 10px;
+}
 .contact__redes_logo {
-    width: 53px;
-    height: 61px;
+    width: 40px;
+    height: 40px;
     align-self: center;
 
 }
 
 .contact__redes_siguenos {
-    align-self: center;
+    display: flex;
+    flex-direction: row;
+
 }
+
+.contact__redes_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px; /* Adjust spacing as needed */
+}
+
 
 .contact__direccion {
     grid-area: 2/ 3 / 3 / 4;
@@ -124,25 +142,21 @@ text-transform: uppercase;
     font-weight: bold;
 }
 @media screen and (max-width: 768px) {
-    .contact {
-      display: flex;
-      flex-direction: column;
-      padding: 40px 24px; /* reduce horizontal padding but keep spacing */
-      gap: 24px;
-    }
-  
-    .contact__contactanos,
-    .contact__agenda,
-    .contact__redes,
-    .contact__direccion,
-    .contact__whatsapp,
-    .contact__email {
-      grid-area: unset;
-      width: 100%;
-    }
-  
-    .contact__redes {
-      justify-content: flex-start;
-    }
+  .contact {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px; /* reduce horizontal padding but keep spacing */
+    gap: 24px;
   }
-  
+
+  .contact__contactanos,
+  .contact__agenda,
+  .contact__redes,
+  .contact__direccion,
+  .contact__whatsapp,
+  .contact__email {
+    grid-area: unset;
+    width: 100%;
+  }
+
+
