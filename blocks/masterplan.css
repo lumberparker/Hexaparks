@@ -2,6 +2,8 @@
   background-color: #E8DEC5;
   padding-top: 64px;
   padding-bottom: 64px;
+  display: flex;
+  flex-direction: column;
 }
 .masterplan__logo {
     display: flex;
@@ -45,8 +47,13 @@ margin-bottom: 0px;
 }
 
 .masterplan__mapa {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 1280px;
-  }
+  width: 100%;
+  height: auto;
+}
   
   /* General styling for all tables */
 .tablas-general {
