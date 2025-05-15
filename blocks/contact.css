@@ -103,7 +103,9 @@ text-transform: uppercase;
 }
 
 .contact__direccion_content {
+    text-transform: uppercase;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .contact__whatsapp {
