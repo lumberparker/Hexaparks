@@ -11,8 +11,9 @@ padding: 30px;
 }
 
 .header__logo {
-  height: auto;
+ 
   width: 350px;
+  height: auto;
   max-width: 417px;
 }
 
