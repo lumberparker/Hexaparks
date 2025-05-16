@@ -5,7 +5,7 @@
   color: #E8DEC5; /* Apply universal text color */
   padding-top: 5vw;
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
   padding-bottom: 35px;

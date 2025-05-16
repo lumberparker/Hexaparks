@@ -108,6 +108,17 @@ margin-bottom: 0px;
     padding-left: 12px;
   }
   
+  /* Make first column fit its content */
+  .masterplan__tabla-terreno td:first-child,
+  .masterplan__tabla-terreno th:first-child,
+  .masterplan__tabla-vialidades td:first-child,
+  .masterplan__tabla-vialidades th:first-child,
+  .nave-table td:first-child,
+  .nave-table th:first-child {
+    width: 1%;
+    white-space: nowrap;
+  }
+  
   /* Nave Table */
   .nave-table {
     width: 100%;

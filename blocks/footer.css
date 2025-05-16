@@ -1,9 +1,12 @@
 footer{
+    max-width: 1280px;
     height: 156px;
     background-color: #E8DEC5;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: auto;  
+    margin-right: auto  ;
 }
 .footer__logo{
     width: 320px;

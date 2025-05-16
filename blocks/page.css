@@ -19,14 +19,13 @@ html, body {
   font-size: 16px;
   line-height: 20px;
   color: white;
+  height: 100%;
   padding-top: 67px;
   box-sizing: border-box;
-
 }
 
-
 .main {
-  flex: 1
+  flex: 1 1 auto;
   /* Ensures main takes up all available space */
 }
 
