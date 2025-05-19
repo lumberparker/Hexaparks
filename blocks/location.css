@@ -113,12 +113,15 @@
 
 }
 
-.location__strategic_main ul {
+.location__strategic_list ul {
     list-style: disc; 
     border-left: 30px;
 }
 
-.location__strategic_main li {
+.location__strategic_list {
+    font-size: 2vw;
+    list-style: circle; 
+    border-left: 30px;
 }
 
 @media screen and (max-width: 768px) {
