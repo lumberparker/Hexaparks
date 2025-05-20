@@ -8,7 +8,7 @@ html, body {
 }
 
 .page {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #E8DEC5;
@@ -19,7 +19,6 @@ html, body {
   font-size: 16px;
   line-height: 20px;
   color: white;
-  height: 100%;
   padding-top: 67px;
   box-sizing: border-box;
 }
