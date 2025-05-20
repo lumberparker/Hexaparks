@@ -203,7 +203,7 @@ margin-bottom: 0px;
     background-color:#E8DEC5;
     margin-left: 55px;
     margin-right: 55px;
-    display: none;
+    display: flex;
    
   }
 
@@ -219,7 +219,7 @@ margin-bottom: 0px;
   }
 
 .masterplan__avances_container{
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -227,7 +227,7 @@ margin-bottom: 0px;
 
     border-radius: 20px;
     color: #E8DEC5;
-    height: 350px;
+    height: 250px;
     
 }
 .masterplan__avances_title {
@@ -236,7 +236,7 @@ font-weight: 500;
 font-size: 4vw;
 line-height: 100%;
 letter-spacing: 0%;
-width: 600px;
+width: 80%;
 margin-top: 0;
 margin-bottom: 35px;
 text-align: center;
@@ -263,14 +263,21 @@ text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     
 }
 
-.masterplan__avances_link-button {
+a.masterplan__avances_link-button {
+  color: #E8DEC5;
+}
+
+.masterplan__avances_link-button  {
     display: flex;
     justify-content: center;
-    align-items: center;    width: 270px;
+    align-items: center;
+    text-align: center;   
+    width: 50%;
     height: 56px;
     background-color:#C94D41;
     cursor: pointer;
