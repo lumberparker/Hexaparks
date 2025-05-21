@@ -258,17 +258,7 @@ text-align: center;
 
 }
 
-.masterplan__avances_link {
-    background-image: url("../images/nave-fondo.png");
-    background-size: cover;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    
-}
+
 
 a.masterplan__avances_link-button {
   color: #E8DEC5;
@@ -282,9 +272,21 @@ a.masterplan__avances_link-button {
     width: 50%;
     height: 56px;
     background-color:#C94D41;
+    filter: none;
     cursor: pointer;
     
 
+}
+.masterplan__avances_link {
+  background-image: url("../images/nave-fondo.png");
+  background-size: cover;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  
 }
 @media screen and (max-width: 1150px){
   .tablas-general{

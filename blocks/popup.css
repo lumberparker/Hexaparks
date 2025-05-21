@@ -26,7 +26,7 @@
     color:#E8DEC5;
     overflow-y: scroll;
     width: 470px;
-    height: 381px;
+    height: auto;
     padding: 1.5rem;
     border-radius: 8px;
     position: relative;
@@ -40,6 +40,7 @@
     line-height: 24px;
     letter-spacing: 0%;
     color:#E8DEC5;
+    list-style-type:square;
 
   }
   .popup__close {
@@ -60,6 +61,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
   }
   
   
@@ -70,6 +72,7 @@
     margin-top: 0;
     font-size: 1.25rem;
     text-transform: uppercase;
+
   }
   .popup__content {
     margin: 1rem 0 0;
