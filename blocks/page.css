@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -11,7 +12,7 @@ html, body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #E8DEC5;
+  background-color: #e8dec5;
   font-family: "inter", "arial", sans-serif;
   max-width: 100vw;
   margin-left: auto;
@@ -41,7 +42,9 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3,
+h1,
+h2,
+h3,
 .intro__title,
 .description__top_numbers,
 .description__top_text,
@@ -70,7 +73,7 @@ h1, h2, h3,
 
   /* Grid de amenidades a 1 columna */
   .description__grid {
-    display: block;         /* o grid-template-columns: 1fr; */
+    display: block; /* o grid-template-columns: 1fr; */
   }
 
   /* Ajuste de navegación vertical */
