@@ -119,7 +119,7 @@
 
 .location__strategic_list {
     font-size: 2vw;
-    list-style: circle; 
+    list-style: "⦿"; 
     border-left: 30px;
 }
 
