@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <!-- ===== HEAD: Meta, title, styles, favicon ===== -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-content=.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
       name="description"
@@ -24,6 +25,7 @@
   </head>
   <body>
     <div class="page">
+      <!-- ===== HEADER ===== -->
       <header class="header">
         <img
           class="header__logo"
@@ -45,9 +47,10 @@
         </nav>
       </header>
       <main class="main">
+        <!-- ===== INTRO SECTION ===== -->
         <section class="intro">
           <div class="intro__title">
-            un entorno industrial listo para operar, pensado para la eficiencia,
+            Un entorno industrial listo para operar, pensado para la eficiencia,
             seguridad y comodidad de las empresas y su personal.
           </div>
           <img
@@ -56,7 +59,8 @@
             alt="Imagen de nave industrial en Hexaparks"
           />
         </section>
-        <!-- Descripción general -->
+
+        <!-- ===== DESCRIPTION SECTION ===== -->
         <section class="description" id="amenidades">
           <div class="description__top">
             <div class="description__top_area">
@@ -177,7 +181,9 @@
             <div class="financiamiento">Contamos con financiamiento</div>
           </div>
         </section>
-        <!-- Popups -->
+
+        <!-- ===== POPUPS (modals) ===== -->
+        <div class="popups">
         <div class="popup popup__naves">
           <div class="popup__container">
             <button class="popup__close">
@@ -340,6 +346,9 @@
             </ul>
           </div>
         </div>
+        </div>
+
+        <!-- ===== RENDERS SECTION ===== -->
         <section class="renders">
           <div class="renders__container">
             <img
@@ -364,6 +373,8 @@
             />
           </div>
         </section>
+
+        <!-- ===== LOCATION SECTION ===== -->
         <section class="location">
           <div class="location__main">
             <div class="location__main_title">Hexaparks | El Sauz</div>
@@ -389,13 +400,15 @@
             <div class="location__strategic_main">
               <ul class="location__strategic_list">
                 <li>
-                  Conectado con corredores industriales y logísticos clave
+                  Conectado con corredores industriales y logísticos clave.
                 </li>
-                <li>Acceso rápido a vialidades primarias</li>
+                <li>Acceso rápido a vialidades primarias.</li>
               </ul>
             </div>
           </div>
         </section>
+
+        <!-- ===== MASTERPLAN SECTION ===== -->
         <section class="masterplan" id="masterplan">
           <img
             src="./images/plano.jpg"
@@ -805,6 +818,8 @@
             </div>
           </div>
         </section>
+
+        <!-- ===== FEATURES SECTION ===== -->
         <section class="features">
           <div class="features__toggle">
             <h1 class="features__toggle-title">Características importantes</h1>
@@ -817,186 +832,25 @@
                     alt="Expand section"
                   />
                 </button>
-                <h2 class="toggle-title">1. Diseño Modular y Flexible</h2>
+                <span class="toggle-title">Título de característica</span>
               </div>
               <div class="toggle-content">
-                <p>
-                  Espacios adaptables a diferentes tipos de operaciones
-                  industriales (almacenaje, producción, manufactura).
-                </p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">
-                  2. Altura Libre Interior de 11 metros
-                </h2>
-              </div>
-              <div class="toggle-content">
-                <p>
-                  Permite el uso de estanterías altas, maquinaria, y la
-                  circulación de equipos pesados sin obstáculos.
-                </p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">3. Accesibilidad y Conectividad</h2>
-              </div>
-              <div class="toggle-content">
-                <p>
-                  Ubicación estratégica cerca de principales vías de
-                  comunicación y transporte (autopistas, puertos, etc.).
-                </p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">4. Seguridad</h2>
-              </div>
-              <div class="toggle-content">
-                <p>
-                  Sistema de vigilancia 24/7, control de acceso, alarma contra
-                  incendios, y zonas de protección.
-                </p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">5. Diseño Eficiente de Espacios</h2>
-              </div>
-              <div class="toggle-content">
-                <p>
-                  Maximización del uso de la superficie con una distribución de
-                  áreas productivas, oficinas, áreas de descanso, y baños.
-                </p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">6. Condiciones Ambientales</h2>
-              </div>
-              <div class="toggle-content">
-                <p>Ventilación por extractor de gravedad.</p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">7. Sostenibilidad</h2>
-              </div>
-              <div class="toggle-content">
-                <p>
-                  Uso de materiales ecológicos, reciclaje de aguas pluviales,
-                  soluciones para reducción de huella de carbono, y eficiencia
-                  energética (paneles solares, etc.).
-                </p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">8. Estilo Arquitectónico</h2>
-              </div>
-              <div class="toggle-content">
-                <p>
-                  Estética moderna y funcional, combinando elementos que den una
-                  imagen profesional y sólida a la empresa.
-                </p>
-              </div>
-            </div>
-
-            <div class="toggle-item">
-              <div class="toggle-header">
-                <button class="toggle-btn" aria-expanded="false">
-                  <img
-                    class="toggle-icon"
-                    src="./images/plus.png"
-                    alt="Expand section"
-                  />
-                </button>
-                <h2 class="toggle-title">9. Acceso a Servicios Comunes</h2>
-              </div>
-              <div class="toggle-content">
-                <p>
-                  Áreas compartidas como comedor industrial, estacionamiento,
-                  área de descanso para choferes, etc.
-                </p>
+                <!-- Contenido de la característica -->
               </div>
             </div>
           </div>
         </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
         <section class="contact" id="contacto">
           <div class="contact__contactanos">CONTÁCTANOS</div>
-          <div class="contact__agenda">
-            Agenda una visita para conocer el desarrollo.
-          </div>
+          <div class="contact__agenda">Agenda una visita para conocer las instalaciones</div>
           <div class="contact__redes">
-            <a
-              class="contact__redes_content"
-              href="https://www.instagram.com/hexaparks/"
-            >
-              <img
-                src="./images/instagram.png"
-                alt="Icono beige instagram"
-                class="instagram"
-              />
+            <div class="contact__redes_content">
+              <img src="./images/icono-redes.png" alt="Icono beige Hexaparks" class="contact__redes_logo">
               <span class="contact__redes_text">Síguenos en redes</span>
-            </a>
+              <img src="./images/instagram.png" alt="Icono beige instagram" class="instagram">
+            </div>
           </div>
           <div class="contact__direccion">
             <div class="contact__direccion_title">DIRECCIÓN</div>
@@ -1020,6 +874,7 @@
         </section>
       </main>
 
+      <!-- ===== FOOTER ===== -->
       <footer class="footer">
         <img
           src="./images/logo.png"
@@ -1037,7 +892,8 @@
       </footer>
     </div>
 
+    <!-- ===== SCRIPTS ===== -->
     <script src="./scripts/amenidades.js"></script>
-    <script src="../scripts/index.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
