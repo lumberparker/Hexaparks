@@ -269,6 +269,57 @@ a.masterplan__avances_link-button {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
+.masterplan__email-cta {
+  display: flex;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 80px;
+  padding: 40px 20px;
+  border: 3px solid black;
+}
+
+.masterplan__email-cta-text {
+  font-family: "kollektif", "arial", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+  color: #000;
+  margin: 0;
+}
+
+.masterplan__email-cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  width: 221px;
+  background-color: black;
+  color: white;
+  font-family: "kollektif", "arial", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  line-height: 34px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.masterplan__email-cta-button:hover {
+  background-color: #564f37;
+  color: #e8dec5;
+}
+
 @media screen and (max-width: 1150px) {
   .tablas-general {
     flex-direction: column;
@@ -366,5 +417,13 @@ a.masterplan__avances_link-button {
   }
   .masterplan__logo_subitle {
     font-size: 4vw;
+  }
+  .masterplan__email-cta {
+    margin-top: 50px;
+    padding: 30px 20px;
+  }
+  .masterplan__email-cta-text {
+    font-size: 22px;
+    line-height: 28px;
   }
 }
