@@ -161,11 +161,11 @@
 }
 
 /* Iconos (PNG con transparencia teñidos con máscara) */
-.amenity__icon_naves { --icon: url("../images/icono_naves.png"); }
-.amenity__icon_seguridad { --icon: url("../images/icono_seguridad.png"); }
-.amenity__icon_infraesctructura { --icon: url("../images/icono_infraesctructura.png"); }
-.amenity__icon_operacion { --icon: url("../images/icono_operacion.png"); }
-.amenity__icon_servicios { --icon: url("../images/icono_servicios.png"); }
-.amenity__icon_business { --icon: url("../images/icono_business.png"); }
-.amenity__icon_sostenibilidad { --icon: url("../images/icono_sostenibilidad.png"); }
-.amenity__icon_ubicacion { --icon: url("../images/icono_ubicacion.png"); }
+.amenity__icon_naves { --icon: url("../assets/images/icono_naves.png"); }
+.amenity__icon_seguridad { --icon: url("../assets/images/icono_seguridad.png"); }
+.amenity__icon_infraesctructura { --icon: url("../assets/images/icono_infraesctructura.png"); }
+.amenity__icon_operacion { --icon: url("../assets/images/icono_operacion.png"); }
+.amenity__icon_servicios { --icon: url("../assets/images/icono_servicios.png"); }
+.amenity__icon_business { --icon: url("../assets/images/icono_business.png"); }
+.amenity__icon_sostenibilidad { --icon: url("../assets/images/icono_sostenibilidad.png"); }
+.amenity__icon_ubicacion { --icon: url("../assets/images/icono_ubicacion.png"); }
