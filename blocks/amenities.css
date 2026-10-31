@@ -1,0 +1,171 @@
+/* Portadilla "8 razones" (lámina 6) */
+.amenities__intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "count ."
+    "title symbol"
+    "note symbol";
+  column-gap: 24px;
+  padding: var(--section-y) var(--pad);
+  background: var(--maroon);
+  color: var(--orange);
+}
+
+.amenities__count {
+  grid-area: count;
+  font-size: clamp(160px, 25vw, 400px);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
+.amenities__title {
+  grid-area: title;
+  margin-top: clamp(24px, 3vw, 48px);
+  font-size: clamp(32px, 4.4vw, 76px);
+}
+
+.amenities__title::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-top: clamp(20px, 2.4vw, 36px);
+  background: currentColor;
+}
+
+.amenities__note {
+  grid-area: note;
+  margin-top: clamp(32px, 4vw, 64px);
+  color: var(--white);
+}
+
+.amenities__symbol {
+  grid-area: symbol;
+  align-self: end;
+  justify-self: end;
+  width: clamp(64px, 8vw, 132px);
+  height: clamp(64px, 8vw, 132px);
+}
+
+/* Retícula de amenidades (lámina 7) */
+.amenities__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 1vw, 16px);
+  margin: 0;
+  padding: var(--section-y) var(--pad);
+  list-style: none;
+  background: var(--white);
+}
+
+.amenity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: clamp(20px, 2vw, 32px);
+  border: 0;
+  border-top: 2px solid var(--maroon);
+  background: transparent;
+  color: var(--maroon);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.amenity:hover {
+  background: var(--grey);
+}
+
+.amenity__icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: clamp(24px, 3vw, 44px);
+  background: var(--orange);
+  -webkit-mask: var(--icon) left center / contain no-repeat;
+  mask: var(--icon) left center / contain no-repeat;
+}
+
+.amenity__num {
+  color: var(--orange);
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.amenity__title {
+  margin-top: 8px;
+  font-size: clamp(21px, 1.75vw, 30px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.amenity__text {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.amenity__more {
+  margin-top: auto;
+  color: var(--maroon);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.amenity__more::after {
+  content: " +";
+  color: var(--orange);
+  font-size: 1.4em;
+  line-height: 0;
+}
+
+@media (max-width: 1100px) {
+  .amenities__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .amenities__intro {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "count symbol"
+      "title title"
+      "note note";
+  }
+
+  .amenities__symbol {
+    align-self: start;
+  }
+
+  .amenities__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .amenity__icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Iconos (PNG con transparencia teñidos con máscara) */
+.amenity__icon_naves { --icon: url("../images/icono_naves.png"); }
+.amenity__icon_seguridad { --icon: url("../images/icono_seguridad.png"); }
+.amenity__icon_infraesctructura { --icon: url("../images/icono_infraesctructura.png"); }
+.amenity__icon_operacion { --icon: url("../images/icono_operacion.png"); }
+.amenity__icon_servicios { --icon: url("../images/icono_servicios.png"); }
+.amenity__icon_business { --icon: url("../images/icono_business.png"); }
+.amenity__icon_sostenibilidad { --icon: url("../images/icono_sostenibilidad.png"); }
+.amenity__icon_ubicacion { --icon: url("../images/icono_ubicacion.png"); }

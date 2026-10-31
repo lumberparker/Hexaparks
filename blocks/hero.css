@@ -1,0 +1,88 @@
+/* Portada: render a sangre con el logotipo monumental (lámina 29) */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: max(560px, min(calc(100svh - var(--header-h)), 64vw));
+  padding: clamp(24px, 4vw, 64px) var(--pad) clamp(20px, 3vw, 48px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%;
+}
+
+/* oscurece la base para que el logotipo se lea sobre el asfalto */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(20, 8, 12, 0), rgba(20, 8, 12, 0.45));
+  pointer-events: none;
+}
+
+.hero__note,
+.hero__place {
+  position: absolute;
+  top: clamp(24px, 4vw, 64px);
+  color: var(--maroon);
+  font-size: clamp(13px, 1.25vw, 19px);
+}
+
+.hero__note {
+  left: var(--pad);
+}
+
+.hero__place {
+  right: var(--pad);
+  text-align: right;
+}
+
+.hero__lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(6px, 1vw, 16px);
+  margin-top: auto;
+  color: var(--orange);
+}
+
+.hero__tagline {
+  width: 38%;
+  aspect-ratio: 19.88;
+  height: auto;
+}
+
+.hero__title {
+  width: 100%;
+  line-height: 0;
+}
+
+.hero__wordmark {
+  width: 100%;
+  aspect-ratio: 8.304;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 78svh;
+  }
+
+  .hero__image {
+    object-position: 58% 50%;
+  }
+
+  .hero__tagline {
+    width: 62%;
+  }
+}
