@@ -8,6 +8,46 @@ document.addEventListener("DOMContentLoaded", () => {
     heroVideo.pause();
   }
 
+  // botón de sonido: aparece solo cuando el video carga y tiene audio
+  const soundBtn = document.querySelector(".sound-toggle");
+  if (heroVideo && soundBtn) {
+    const state = soundBtn.querySelector(".sound-toggle__state");
+
+    const hasAudio = () =>
+      heroVideo.mozHasAudio ||
+      Boolean(heroVideo.webkitAudioDecodedByteCount) ||
+      Boolean(heroVideo.audioTracks && heroVideo.audioTracks.length);
+
+    const render = () => {
+      const on = !heroVideo.muted;
+      soundBtn.setAttribute("aria-pressed", String(on));
+      soundBtn.setAttribute("aria-label", on ? "Silenciar video" : "Activar sonido del video");
+      state.textContent = on ? "On" : "Off";
+    };
+
+    const reveal = () => {
+      // algunos navegadores no informan si hay audio: en ese caso se muestra igual
+      const unknown =
+        heroVideo.mozHasAudio === undefined &&
+        heroVideo.webkitAudioDecodedByteCount === undefined &&
+        !heroVideo.audioTracks;
+      if (unknown || hasAudio()) soundBtn.hidden = false;
+    };
+
+    heroVideo.addEventListener("loadeddata", reveal);
+    heroVideo.addEventListener("playing", () => setTimeout(reveal, 400));
+    if (heroVideo.readyState >= 2) reveal();
+
+    soundBtn.addEventListener("click", () => {
+      heroVideo.muted = !heroVideo.muted;
+      if (!heroVideo.muted && heroVideo.paused) heroVideo.play().catch(() => {});
+      render();
+    });
+
+    heroVideo.addEventListener("volumechange", render);
+    render();
+  }
+
   const items = document.querySelectorAll(".features__toggle .toggle-item");
 
   const setOpen = (item, open) => {

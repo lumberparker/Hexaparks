@@ -56,6 +56,19 @@
   color: var(--orange);
 }
 
+.hero__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+/* el tagline sigue alineado a la derecha aunque el botón esté oculto */
+.hero__bar .hero__tagline {
+  margin-left: auto;
+}
+
 .hero__tagline {
   width: 38%;
   aspect-ratio: 19.88;
@@ -73,6 +86,149 @@
   height: auto;
 }
 
+/* ===== Botón de sonido ===== */
+.sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 18px 0 6px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(42, 16, 22, 0.38);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.sound-toggle[hidden] {
+  display: none;
+}
+
+.sound-toggle:hover {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: var(--maroon);
+}
+
+.sound-toggle__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--maroon);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.sound-toggle[aria-pressed="true"] .sound-toggle__icon {
+  background: var(--orange);
+  color: var(--maroon);
+}
+
+.sound-toggle:hover .sound-toggle__icon {
+  background: var(--maroon);
+  color: var(--orange);
+}
+
+.sound-toggle__speaker,
+.sound-toggle__mute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%);
+}
+
+.sound-toggle__speaker {
+  margin-left: -3px;
+  fill: currentColor;
+}
+
+.sound-toggle__mute {
+  margin-left: 1px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+/* ecualizador animado cuando el sonido está activo */
+.sound-toggle__bars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+  margin-left: 4px;
+  transform: translateY(-50%);
+}
+
+.sound-toggle__bars i {
+  width: 2px;
+  height: 100%;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: sound-bars 0.9s ease-in-out infinite;
+}
+
+.sound-toggle__bars i:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.sound-toggle__bars i:nth-child(3) {
+  animation-delay: -0.6s;
+}
+
+@keyframes sound-bars {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.sound-toggle[aria-pressed="true"] .sound-toggle__mute {
+  display: none;
+}
+
+.sound-toggle[aria-pressed="true"] .sound-toggle__bars {
+  display: flex;
+}
+
+.sound-toggle[aria-pressed="true"] .sound-toggle__speaker {
+  margin-left: -5px;
+}
+
+.sound-toggle__state {
+  min-width: 2.2em;
+  color: var(--orange);
+}
+
+.sound-toggle:hover .sound-toggle__state {
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sound-toggle__bars i {
+    animation: none;
+    transform: scaleY(0.7);
+  }
+}
+
 @media (max-width: 760px) {
   .hero {
     min-height: 78svh;
@@ -83,6 +239,17 @@
   }
 
   .hero__tagline {
-    width: 62%;
+    width: 52%;
+  }
+
+  .sound-toggle {
+    min-height: 40px;
+    gap: 8px;
+    padding-right: 14px;
+    font-size: 11px;
+  }
+
+  .sound-toggle__label {
+    display: none;
   }
 }
