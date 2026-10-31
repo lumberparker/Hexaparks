@@ -1,84 +1,206 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  width: 100%;
+/* ===== Tokens (paleta y tipografía de la guía HEXAPARKS) ===== */
+:root {
+  --orange: #ff4023;
+  --maroon: #5a1c2c;
+  --navy: #003d5f;
+  --blue: #0076dd;
+  --grey: #e4e4e4;
+  --white: #ffffff;
+  --ink: #2a1016;
+
+  --font: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* margen lateral y espaciado vertical de secciones */
+  --pad: clamp(16px, 5.2vw, 100px);
+  --section-y: clamp(56px, 8vw, 140px);
+  --header-h: 76px;
 }
 
-.page {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: #e8dec5;
-  font-family: "inter", "arial", sans-serif;
-  max-width: 100vw;
-  margin-left: auto;
-  margin-right: auto;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font);
   font-size: 16px;
-  line-height: 20px;
-  color: white;
-  padding-top: 67px;
-  box-sizing: border-box;
+  line-height: 1.5;
+  overflow-x: clip;
 }
 
-.main {
-  flex: 1 1 auto;
-  /* Ensures main takes up all available space */
+img {
+  display: block;
+  max-width: 100%;
 }
 
-.footer {
-  flex-shrink: 0;
-  /* Optional: width: 100%; */
+a {
+  color: inherit;
 }
 
-body {
-  width: 100vw;
+p {
   margin: 0;
-  height: 100%;
-  font-family: "kollektif", Arial, sans-serif;
-  box-sizing: border-box;
 }
 
 h1,
 h2,
-h3,
-.intro__title,
-.description__top_numbers,
-.description__top_text,
-.description__grid_text,
-.masterplan__logo_title,
-.masterplan__logo_subitle,
-.masterplan__avances_title,
-.features__toggle-title {
-  font-family: "kollektif", Arial, sans-serif;
+h3 {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
 }
 
-.features__toggle-title {
-  font-family: "murs", Arial, sans-serif;
+button {
+  font: inherit;
+  color: inherit;
 }
 
-/* ===== Móvil (≤768px) ===== */
-@media screen and (max-width: 768px) {
-  body {
-    width: 100vw;
-    margin: 0;
-  }
-  .page {
-    max-width: 100vw;
-    padding-top: 56px;
-  }
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
 
-  /* Grid de amenidades a 1 columna */
-  .description__grid {
-    display: block; /* o grid-template-columns: 1fr; */
-  }
+main section[id] {
+  scroll-margin-top: var(--header-h);
+}
 
-  /* Ajuste de navegación vertical */
-  .header__nav__list {
-    flex-direction: column;
-    gap: 0.5rem;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Tipografía ===== */
+
+/* Titulares grandes: grotesca regular, mayúsculas, interlineado cerrado */
+.display {
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* Textos cortos en mayúsculas (esquinas de las láminas) */
+.eyebrow {
+  font-size: clamp(12px, 0.95vw, 15px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.eyebrow_dash::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin-top: 10px;
+  background: currentColor;
+}
+
+/* ===== Logotipo: wordmark + tagline ===== */
+.lockup {
+  --w: clamp(170px, 30vw, 440px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--w) * 0.035);
+  color: var(--white);
+}
+
+.lockup_right {
+  align-items: flex-end;
+}
+
+.lockup__wordmark {
+  width: var(--w);
+  height: calc(var(--w) / 8.304);
+}
+
+.lockup__tagline {
+  width: calc(var(--w) * 0.414);
+  height: calc(var(--w) * 0.414 / 19.88);
+}
+
+/* ===== Botones ===== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button_maroon {
+  background: var(--maroon);
+  color: var(--white);
+}
+
+.button_maroon:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.button_orange {
+  background: var(--orange);
+  color: var(--maroon);
+}
+
+.button_orange:hover {
+  background: var(--white);
+  color: var(--maroon);
+}
+
+/* ===== Insignia circular "Industria en movimiento" ===== */
+.badge {
+  width: clamp(96px, 11vw, 176px);
+  height: clamp(96px, 11vw, 176px);
+  animation: badge-spin 28s linear infinite;
+}
+
+@keyframes badge-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    animation: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .lockup {
+    --w: min(62vw, 260px);
   }
 }

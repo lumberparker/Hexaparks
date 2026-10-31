@@ -1,42 +1,46 @@
-// amenidades.js
+// amenidades.js — ventanas de detalle de cada amenidad
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1) Todos los items que abren popup
-    const items = document.querySelectorAll('[data-popup]');
-    // 2) Todos los botones de cerrar (dentro de los popups)
-    const closeBtns = document.querySelectorAll('.popup__close');
-  
-    // Función para ocultar TODOS los popups
-    const hideAll = () => {
-      document.querySelectorAll('.popup').forEach(p => {
-        p.style.display = 'none';
-      });
-    };
-  
-    // 3) Mostrar el popup correspondiente al hacer click en el grid
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        const popupClass = item.getAttribute('data-popup');
-        const popup = document.querySelector(`.popup.${popupClass}`);
-        if (!popup) return;
-        hideAll();
-        popup.style.display = 'flex';  // Usamos flex para centrar en CSS
-      });
+document.addEventListener("DOMContentLoaded", () => {
+  const triggers = document.querySelectorAll("[data-popup]");
+  const popups = document.querySelectorAll(".popup");
+  let lastTrigger = null;
+
+  const hideAll = () => {
+    popups.forEach((p) => {
+      p.style.display = "none";
     });
-  
-    // 4) Cerrar popup al hacer click en su botón de close
-    closeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const popup = btn.closest('.popup');
-        if (popup) popup.style.display = 'none';
-      });
-    });
-  
-    // 5) (Opcional) Cerrar popup si el usuario hace click fuera del contenedor
-    document.querySelectorAll('.popup').forEach(popup => {
-      popup.addEventListener('click', e => {
-        if (e.target === popup) popup.style.display = 'none';
-      });
+    document.body.style.overflow = "";
+    if (lastTrigger) {
+      lastTrigger.focus();
+      lastTrigger = null;
+    }
+  };
+
+  // abrir la ventana correspondiente
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const popup = document.querySelector(`.popup.${trigger.dataset.popup}`);
+      if (!popup) return;
+      hideAll();
+      lastTrigger = trigger;
+      popup.style.display = "flex";
+      document.body.style.overflow = "hidden";
+      popup.querySelector(".popup__close")?.focus();
     });
   });
-  
+
+  // cerrar con el botón, al hacer clic fuera o con Escape
+  document.querySelectorAll(".popup__close").forEach((btn) => {
+    btn.addEventListener("click", hideAll);
+  });
+
+  popups.forEach((popup) => {
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) hideAll();
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") hideAll();
+  });
+});
