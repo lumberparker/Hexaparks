@@ -1,0 +1,363 @@
+/* Plano interactivo de disponibilidad (estado desde assets/data/lotes.json) */
+.siteplan {
+  --st-disponible: #2a2626;
+  --st-apartada: var(--blue);
+  --st-vendida: var(--orange);
+  width: 100%;
+  max-width: 1400px;
+  color: var(--maroon);
+}
+
+.siteplan__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  margin-bottom: clamp(20px, 2.4vw, 36px);
+}
+
+.siteplan__total {
+  margin-top: 10px;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+/* ----- leyenda / filtro ----- */
+.siteplan__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.siteplan__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 16px 0 12px;
+  border: 1px solid rgba(90, 28, 44, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--maroon);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.siteplan__chip:hover {
+  border-color: var(--maroon);
+}
+
+.siteplan__chip[aria-pressed="true"] {
+  border-color: var(--maroon);
+  background: var(--maroon);
+  color: var(--white);
+}
+
+.siteplan__swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--st-disponible);
+}
+
+.siteplan__chip_apartada .siteplan__swatch {
+  background: var(--st-apartada);
+}
+
+.siteplan__chip_vendida .siteplan__swatch {
+  background: var(--st-vendida);
+}
+
+.siteplan__chip[aria-pressed="true"] .siteplan__swatch {
+  box-shadow: 0 0 0 2px var(--white);
+}
+
+.siteplan__count {
+  min-width: 1.6em;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(90, 28, 44, 0.1);
+  font-size: 12px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.siteplan__chip[aria-pressed="true"] .siteplan__count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ----- plano ----- */
+.siteplan__hint {
+  display: none;
+}
+
+.siteplan__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.siteplan__canvas {
+  position: relative;
+  min-width: 860px;
+}
+
+.siteplan__image {
+  width: 100%;
+  height: auto;
+}
+
+.siteplan__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.lot {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.25s ease;
+}
+
+.lot__dot {
+  fill: var(--st-disponible);
+}
+
+.lot__ring {
+  fill: none;
+  stroke: var(--maroon);
+  stroke-width: 5;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.lot__id {
+  fill: var(--white);
+  font-family: var(--font);
+  font-size: 21px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.lot__label {
+  fill: #3a3434;
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 500;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.lot_apartada .lot__dot {
+  fill: var(--st-apartada);
+}
+
+.lot_vendida .lot__dot {
+  fill: var(--st-vendida);
+}
+
+.lot_apartada .lot__label {
+  fill: var(--st-apartada);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.lot_vendida .lot__label {
+  fill: #d83416;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.lot:hover .lot__ring,
+.lot:focus-visible .lot__ring,
+.lot_active .lot__ring {
+  opacity: 1;
+}
+
+.lot:focus-visible .lot__ring {
+  stroke: var(--orange);
+}
+
+/* filtro: atenúa las naves que no coinciden */
+.siteplan[data-filter="disponible"] .lot:not(.lot_disponible),
+.siteplan[data-filter="apartada"] .lot:not(.lot_apartada),
+.siteplan[data-filter="vendida"] .lot:not(.lot_vendida) {
+  opacity: 0.18;
+}
+
+/* ----- tooltip ----- */
+.siteplan__tip {
+  position: absolute;
+  z-index: 2;
+  min-width: 190px;
+  padding: 16px 18px;
+  background: var(--maroon);
+  color: var(--white);
+  box-shadow: 0 12px 32px rgba(42, 16, 22, 0.28);
+  transform: translate(-50%, calc(-100% - 30px));
+  pointer-events: auto;
+}
+
+.siteplan__tip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background: var(--maroon);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.siteplan__tip[hidden] {
+  display: none;
+}
+
+.siteplan__tip-title {
+  font-size: 22px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.siteplan__tip-meta {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.siteplan__tip-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.siteplan__tip-status::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.siteplan__tip-status_apartada::before {
+  background: #4aa3ff;
+}
+
+.siteplan__tip-status_vendida::before {
+  background: var(--orange);
+}
+
+.siteplan__tip-cta {
+  display: block;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--orange);
+  color: var(--maroon);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.siteplan__tip-cta:hover {
+  background: var(--white);
+}
+
+.siteplan__status {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--white);
+  color: var(--maroon);
+  font-size: 15px;
+}
+
+/* ----- pie: fecha y lista ----- */
+.siteplan__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  margin-top: 20px;
+}
+
+.siteplan__list summary {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.siteplan__table {
+  width: min(520px, 100%);
+  margin-top: 14px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.siteplan__table th,
+.siteplan__table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(90, 28, 44, 0.2);
+  text-align: left;
+}
+
+.siteplan__table th {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.siteplan__row_vendida td:last-child {
+  color: #c62f13;
+  font-weight: 600;
+}
+
+.siteplan__row_apartada td:last-child {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  .siteplan__hint {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    opacity: 0.75;
+  }
+
+  .siteplan__head,
+  .siteplan__foot {
+    padding: 0 var(--pad);
+  }
+
+  .siteplan__hint {
+    padding: 0 var(--pad);
+  }
+}
+
+.siteplan__tip_below {
+  transform: translate(-50%, 30px);
+}
+
+.siteplan__tip_below::after {
+  top: -8px;
+  bottom: auto;
+}

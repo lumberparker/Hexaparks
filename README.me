@@ -26,3 +26,21 @@ Hexaparks/
     ├── videos/           Video de portada (hexaparks-hero.mp4)
     └── fonts/            Tipografías Kollektif y Murs Gothic
 ```
+
+## Disponibilidad de naves (master plan)
+
+El estado de cada nave se edita en `assets/data/lotes.json`:
+
+```json
+{"id": "A08", "superficie": 1216.47, "estado": "disponible"}
+```
+
+- `estado`: `disponible`, `apartada` o `vendida`.
+- Actualiza también `"actualizado"` (AAAA-MM-DD); se muestra debajo del plano.
+- Guarda, haz commit y push: el plano, la leyenda y los conteos se actualizan solos.
+
+La posición de cada marcador sobre `assets/images/masterplan/plano-base.jpg` vive en
+`scripts/masterplan.js` y solo cambia si cambia el plano.
+
+> El JSON se carga con `fetch`, por lo que el plano no se ve al abrir `index.html` con doble clic.
+> Para verlo localmente usa un servidor (por ejemplo la extensión **Live Server** de VS Code).

@@ -441,12 +441,45 @@
             <h2 class="masterplan__title display">Master<br />plan</h2>
           </div>
           <div class="masterplan__plan">
-            <img
-              src="./assets/images/plano.jpg"
-              alt="Master plan de Hexaparks"
-              class="masterplan__mapa"
-              loading="lazy"
-            />
+            <div class="siteplan" data-siteplan data-source="./assets/data/lotes.json">
+              <div class="siteplan__head">
+                <div>
+                  <p class="eyebrow eyebrow_dash">Disponibilidad de naves</p>
+                  <p class="siteplan__total">95,000.53 m² de superficie total</p>
+                </div>
+                <div class="siteplan__legend" aria-label="Filtrar por estado"></div>
+              </div>
+
+              <p class="siteplan__hint">Desliza para ver el plano completo · toca una nave para ver su detalle</p>
+              <div class="siteplan__scroll">
+                <div class="siteplan__canvas">
+                  <img
+                    class="siteplan__image"
+                    src="./assets/images/masterplan/plano-base.jpg"
+                    alt="Master plan de Hexaparks con la ubicación de cada nave"
+                    width="2731"
+                    height="1380"
+                    loading="lazy"
+                  />
+                  <svg class="siteplan__overlay" aria-label="Naves del parque"></svg>
+                  <div class="siteplan__tip" role="status" hidden></div>
+                </div>
+              </div>
+              <p class="siteplan__status" role="status" hidden></p>
+
+              <div class="siteplan__foot">
+                <p class="siteplan__updated eyebrow"></p>
+                <details class="siteplan__list">
+                  <summary>Ver lista de naves</summary>
+                  <table class="siteplan__table">
+                    <thead>
+                      <tr><th scope="col">Nave</th><th scope="col">Superficie</th><th scope="col">Estado</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </details>
+              </div>
+            </div>
             <a class="button button_maroon masterplan__button" href="#contacto">Contáctanos</a>
           </div>
         </section>
@@ -660,5 +693,6 @@
     <!-- ===== SCRIPTS ===== -->
     <script src="./scripts/amenidades.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/masterplan.js"></script>
   </body>
 </html>
