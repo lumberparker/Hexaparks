@@ -1,72 +1,34 @@
 // masterplan.js — plano interactivo de naves.
-// El estado de cada nave se lee de assets/data/lotes.json (disponible, apartada, vendida).
-// Aquí solo vive la geometría: el centro de cada marcador sobre plano-base.jpg (2731 × 1380 px).
+//
+// Todo el contenido sale de assets/data/masterplan.json:
+//   lots[]       → id, block, area, status ("available" | "reserved" | "sold"), x, y
+//   amenities[]  → id, label, label_en (opcional), area, x, y
+//   totalArea, unit
+// x / y son porcentajes (0–100) sobre assets/images/masterplan/plano-base.jpg.
 
-const LOT_POSITIONS = {
-  A08: [2011, 725],
-  A18: [2012, 818],
-  A28: [2012, 916],
-  A38: [2014, 1016],
-  A48: [2014, 1116],
-  B08: [1726, 681],
-  B18: [1724, 781],
-  B28: [1726, 875],
-  B38: [1723, 968],
-  B48: [1725, 1063],
-  B58: [1725, 1157],
-  C08: [1568, 646],
-  C18: [1571, 742],
-  C28: [1571, 839],
-  C38: [1566, 934],
-  C48: [1568, 1032],
-  C58: [1568, 1130],
-  D08: [1301, 623],
-  D18: [1304, 723],
-  D28: [1299, 812],
-  D38: [1299, 902],
-  D48: [1297, 993],
-  D58: [1300, 1080],
-  E08: [1152, 319],
-  E18: [1152, 408],
-  E28: [1151, 499],
-  E38: [1150, 620],
-  E48: [1151, 721],
-  E58: [1154, 810],
-  E68: [1154, 900],
-  E78: [1156, 990],
-  E88: [1156, 1080],
-  F08: [896, 498],
-  F18: [896, 607],
-  F28: [896, 700],
-  F38: [894, 795],
-  F48: [895, 884],
-  F58: [896, 979],
-  F68: [895, 1069],
-  F78: [896, 1159],
-  G08: [782, 473],
-  G18: [781, 610],
-  G28: [781, 703],
-  G38: [779, 798],
-  G48: [780, 888],
-  G58: [781, 983],
-  G68: [781, 1073],
-  G78: [781, 1163],
-  H08: [536, 632],
-  H18: [541, 736],
-  H28: [542, 832],
-  H38: [542, 927],
-  H48: [541, 1026],
-};
-
-const PLAN_W = 2731;
-const PLAN_H = 1380;
-const STATUSES = ["disponible", "apartada", "vendida"];
-const T = (key, es) => (window.HexaI18n ? window.HexaI18n.t(key) : es);
-const statusLabel = (estado) => T(`st.${estado}`, estado);
+const PLAN_W = 1808;
+const PLAN_H = 1358;
 const SVG_NS = "http://www.w3.org/2000/svg";
 
-const fmtArea = (n) =>
-  n == null ? null : `${n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} m²`;
+// estados del JSON (inglés) → claves internas; también acepta español
+const STATUS_MAP = {
+  available: "disponible",
+  reserved: "apartada",
+  sold: "vendida",
+  disponible: "disponible",
+  apartada: "apartada",
+  vendida: "vendida",
+};
+const STATUSES = ["disponible", "apartada", "vendida"];
+
+const T = (key, es) => (window.HexaI18n ? window.HexaI18n.t(key) : es);
+const isEn = () => window.HexaI18n && window.HexaI18n.lang === "en";
+const statusLabel = (estado) => T(`st.${estado}`, estado);
+
+const fmtNum = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtArea = (n, unit = "m²") => (n == null ? null : `${fmtNum(n)} ${unit}`);
+
+const px = (pct, size) => (Number(pct) / 100) * size;
 
 const svgEl = (tag, attrs = {}) => {
   const el = document.createElementNS(SVG_NS, tag);
@@ -82,7 +44,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tip = root.querySelector(".siteplan__tip");
   const legend = root.querySelector(".siteplan__legend");
   const table = root.querySelector(".siteplan__table tbody");
-  const updated = root.querySelector(".siteplan__updated");
+  const total = root.querySelector(".siteplan__total");
+  const amenityList = root.querySelector(".siteplan__amenities");
   const status = root.querySelector(".siteplan__status");
 
   let data;
@@ -103,8 +66,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const lots = data.lotes.filter((l) => LOT_POSITIONS[l.id]);
-  const stateOf = (lot) => (STATUSES.includes(lot.estado) ? lot.estado : "disponible");
+  const unit = data.unit || "m²";
+  const lots = (data.lots || []).filter((l) => l.x != null && l.y != null);
+  const amenities = (data.amenities || []).filter((a) => a.x != null && a.y != null);
+  const stateOf = (lot) => STATUS_MAP[String(lot.status).toLowerCase()] || "disponible";
+  const amenityLabel = (a) => (isEn() && a.label_en ? a.label_en : a.label);
+
   svg.setAttribute("viewBox", `0 0 ${PLAN_W} ${PLAN_H}`);
 
   // ----- tooltip -----
@@ -113,21 +80,41 @@ document.addEventListener("DOMContentLoaded", async () => {
     svg.querySelectorAll(".lot_active").forEach((el) => el.classList.remove("lot_active"));
   };
 
+  const placeTip = (x, y) => {
+    tip.style.left = `${x}%`;
+    tip.style.top = `${y}%`;
+    // en la parte alta del plano el globo se abre hacia abajo para no recortarse
+    tip.classList.toggle("siteplan__tip_below", y < 40);
+    tip.hidden = false;
+  };
+
+  const tipLine = (cls, text) => {
+    const p = document.createElement("p");
+    p.className = cls;
+    p.textContent = text;
+    return p;
+  };
+
   const showTip = (g) => {
+    svg.querySelectorAll(".lot_active").forEach((el) => el.classList.remove("lot_active"));
+    g.classList.add("lot_active");
+    tip.innerHTML = "";
+
+    if (g.dataset.kind === "amenity") {
+      const a = amenities.find((item) => item.id === g.dataset.id);
+      tip.append(tipLine("siteplan__tip-title", amenityLabel(a)));
+      if (a.area != null) tip.append(tipLine("siteplan__tip-meta", fmtArea(a.area, unit)));
+      placeTip(a.x, a.y);
+      return;
+    }
+
     const lot = lots.find((l) => l.id === g.dataset.id);
     const estado = g.dataset.estado;
-    const [x, y] = LOT_POSITIONS[lot.id];
-    tip.innerHTML = "";
-    const title = document.createElement("p");
-    title.className = "siteplan__tip-title";
-    title.textContent = `${T("lot", "Nave")} ${lot.id}`;
-    const meta = document.createElement("p");
-    meta.className = "siteplan__tip-meta";
-    meta.textContent = fmtArea(lot.superficie) || T("area.tbd", "Superficie por confirmar");
-    const st = document.createElement("p");
-    st.className = `siteplan__tip-status siteplan__tip-status_${estado}`;
-    st.textContent = statusLabel(estado);
-    tip.append(title, meta, st);
+    tip.append(
+      tipLine("siteplan__tip-title", `${T("lot", "Nave")} ${lot.id}`),
+      tipLine("siteplan__tip-meta", fmtArea(lot.area, unit) || T("area.tbd", "Superficie por confirmar")),
+      tipLine(`siteplan__tip-status siteplan__tip-status_${estado}`, statusLabel(estado))
+    );
     if (estado === "disponible") {
       const a = document.createElement("a");
       a.className = "siteplan__tip-cta";
@@ -136,13 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       a.textContent = T("lot.cta", "Solicitar información");
       tip.append(a);
     }
-    tip.style.left = `${(x / PLAN_W) * 100}%`;
-    tip.style.top = `${(y / PLAN_H) * 100}%`;
-    // en la parte alta del plano el globo se abre hacia abajo para no recortarse
-    tip.classList.toggle("siteplan__tip_below", y / PLAN_H < 0.4);
-    tip.hidden = false;
-    svg.querySelectorAll(".lot_active").forEach((el) => el.classList.remove("lot_active"));
-    g.classList.add("lot_active");
+    placeTip(lot.x, lot.y);
   };
 
   svg.addEventListener("click", (e) => {
@@ -174,32 +155,63 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ----- dibuja todo (se repite al cambiar de idioma) -----
   const render = () => {
     hideTip();
-
-    // marcadores
     svg.innerHTML = "";
+
+    // naves
     lots.forEach((lot) => {
-      const [x, y] = LOT_POSITIONS[lot.id];
+      const x = px(lot.x, PLAN_W);
+      const y = px(lot.y, PLAN_H);
       const estado = stateOf(lot);
-      const area = fmtArea(lot.superficie);
+      const area = fmtArea(lot.area, unit);
       const g = svgEl("g", {
         class: `lot lot_${estado}`,
         tabindex: "0",
         role: "button",
+        "data-kind": "lot",
         "data-id": lot.id,
         "data-estado": estado,
         "aria-label": `${T("lot", "Nave")} ${lot.id}${area ? ", " + area : ""}, ${statusLabel(estado).toLowerCase()}`,
       });
       g.append(
-        svgEl("circle", { class: "lot__ring", cx: x, cy: y, r: 34 }),
-        svgEl("circle", { class: "lot__dot", cx: x, cy: y, r: 27 })
+        svgEl("circle", { class: "lot__ring", cx: x, cy: y, r: 26 }),
+        svgEl("circle", { class: "lot__dot", cx: x, cy: y, r: 21 })
       );
       const id = svgEl("text", { class: "lot__id", x, y: y + 1 });
       id.textContent = lot.id;
-      const label = svgEl("text", { class: "lot__label", x, y: y + 52 });
+      const label = svgEl("text", { class: "lot__label", x, y: y + 40 });
       label.textContent = estado === "disponible" ? area || "" : statusLabel(estado).toUpperCase();
       g.append(id, label);
       svg.append(g);
     });
+
+    // amenidades (marcadores numerados)
+    amenities.forEach((a, i) => {
+      const x = px(a.x, PLAN_W);
+      const y = px(a.y, PLAN_H);
+      const g = svgEl("g", {
+        class: "lot amenity-pin",
+        tabindex: "0",
+        role: "button",
+        "data-kind": "amenity",
+        "data-id": a.id,
+        "aria-label": `${amenityLabel(a)}${a.area != null ? ", " + fmtArea(a.area, unit) : ""}`,
+      });
+      g.append(
+        svgEl("circle", { class: "lot__ring", cx: x, cy: y, r: 21 }),
+        svgEl("circle", { class: "amenity-pin__dot", cx: x, cy: y, r: 16 })
+      );
+      const n = svgEl("text", { class: "lot__id", x, y: y + 1 });
+      n.textContent = String(i + 1);
+      g.append(n);
+      svg.append(g);
+    });
+
+    // superficie total
+    if (total && data.totalArea != null) {
+      total.textContent = isEn()
+        ? `${fmtNum(data.totalArea)} ${unit} total area`
+        : `${fmtNum(data.totalArea)} ${unit} de superficie total`;
+    }
 
     // leyenda con conteo y filtro
     const counts = { disponible: 0, apartada: 0, vendida: 0 };
@@ -223,11 +235,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       legend.append(btn);
     });
 
-    // fecha de actualización
-    if (data.actualizado && updated) {
-      const d = new Date(`${data.actualizado}T12:00:00`);
-      const date = d.toLocaleDateString(T("date.locale", "es-MX"), { day: "numeric", month: "long", year: "numeric" });
-      updated.textContent = `${T("updated", "Actualizado")}: ${date}`;
+    // leyenda de amenidades
+    if (amenityList) {
+      amenityList.innerHTML = "";
+      amenities.forEach((a, i) => {
+        const li = document.createElement("li");
+        const num = document.createElement("span");
+        num.className = "siteplan__amenity-num";
+        num.textContent = String(i + 1);
+        li.append(num, ` ${amenityLabel(a)}${a.area != null ? " · " + fmtArea(a.area, unit) : ""}`);
+        amenityList.append(li);
+      });
     }
 
     // lista accesible
@@ -236,7 +254,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const estado = stateOf(lot);
       const tr = document.createElement("tr");
       tr.className = `siteplan__row_${estado}`;
-      [lot.id, fmtArea(lot.superficie) || "—", statusLabel(estado)].forEach((txt) => {
+      [lot.id, fmtArea(lot.area, unit) || "—", statusLabel(estado)].forEach((txt) => {
         const td = document.createElement("td");
         td.textContent = txt;
         tr.append(td);

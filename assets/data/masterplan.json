@@ -1,0 +1,471 @@
+{
+  "totalArea": 95000.53,
+  "unit": "m²",
+  "amenities": [
+    {
+      "id": "caseta-acceso",
+      "label": "Caseta de acceso",
+      "label_en": "Gatehouse",
+      "area": 31.7,
+      "x": 95.23,
+      "y": 90.34
+    },
+    {
+      "id": "business-center",
+      "label": "Business Center",
+      "area": 1440.0,
+      "x": 48.55,
+      "y": 86.3
+    },
+    {
+      "id": "area-choferes",
+      "label": "Área para choferes",
+      "label_en": "Driver area",
+      "area": 79.85,
+      "x": 28.73,
+      "y": 32.77
+    },
+    {
+      "id": "area-contenedores",
+      "label": "Área para contenedores",
+      "label_en": "Container area",
+      "area": 2798.54,
+      "x": 42.51,
+      "y": 13.01
+    },
+    {
+      "id": "infraestructura",
+      "label": "Infraestructura del parque",
+      "label_en": "Park infrastructure",
+      "area": 39304.8,
+      "x": 5.94,
+      "y": 39.25
+    }
+  ],
+  "lots": [
+    {
+      "id": "H08",
+      "block": "H",
+      "area": 1135.68,
+      "status": "available",
+      "x": 10.54,
+      "y": 47.07
+    },
+    {
+      "id": "H18",
+      "block": "H",
+      "area": 858.25,
+      "status": "available",
+      "x": 10.54,
+      "y": 54.81
+    },
+    {
+      "id": "H28",
+      "block": "H",
+      "area": 871.26,
+      "status": "available",
+      "x": 10.79,
+      "y": 61.88
+    },
+    {
+      "id": "H38",
+      "block": "H",
+      "area": 1070.09,
+      "status": "available",
+      "x": 10.79,
+      "y": 68.84
+    },
+    {
+      "id": "H48",
+      "block": "H",
+      "area": 915.96,
+      "status": "available",
+      "x": 10.79,
+      "y": 76.02
+    },
+    {
+      "id": "G08",
+      "block": "G",
+      "area": 1513.41,
+      "status": "available",
+      "x": 24.07,
+      "y": 35.25
+    },
+    {
+      "id": "G18",
+      "block": "G",
+      "area": 955.72,
+      "status": "available",
+      "x": 23.98,
+      "y": 45.52
+    },
+    {
+      "id": "G28",
+      "block": "G",
+      "area": 955.72,
+      "status": "available",
+      "x": 24.07,
+      "y": 52.38
+    },
+    {
+      "id": "G38",
+      "block": "G",
+      "area": 955.72,
+      "status": "available",
+      "x": 23.98,
+      "y": 59.23
+    },
+    {
+      "id": "G48",
+      "block": "G",
+      "area": 955.72,
+      "status": "available",
+      "x": 23.98,
+      "y": 65.97
+    },
+    {
+      "id": "G58",
+      "block": "G",
+      "area": 955.72,
+      "status": "available",
+      "x": 23.98,
+      "y": 72.93
+    },
+    {
+      "id": "G68",
+      "block": "G",
+      "area": 955.72,
+      "status": "available",
+      "x": 23.98,
+      "y": 79.56
+    },
+    {
+      "id": "G78",
+      "block": "G",
+      "area": 955.72,
+      "status": "available",
+      "x": 23.98,
+      "y": 86.19
+    },
+    {
+      "id": "F08",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 37.13
+    },
+    {
+      "id": "F18",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 45.19
+    },
+    {
+      "id": "F28",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 52.04
+    },
+    {
+      "id": "F38",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 59.01
+    },
+    {
+      "id": "F48",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 65.64
+    },
+    {
+      "id": "F58",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 72.6
+    },
+    {
+      "id": "F68",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 79.23
+    },
+    {
+      "id": "F78",
+      "block": "F",
+      "area": 955.72,
+      "status": "available",
+      "x": 30.29,
+      "y": 85.86
+    },
+    {
+      "id": "E08",
+      "block": "E",
+      "area": 1238.95,
+      "status": "reserved",
+      "x": 44.4,
+      "y": 23.98
+    },
+    {
+      "id": "E18",
+      "block": "E",
+      "area": 1462.62,
+      "status": "reserved",
+      "x": 44.4,
+      "y": 30.5
+    },
+    {
+      "id": "E28",
+      "block": "E",
+      "area": 1829.37,
+      "status": "reserved",
+      "x": 44.4,
+      "y": 37.24
+    },
+    {
+      "id": "E38",
+      "block": "E",
+      "area": 1482.45,
+      "status": "reserved",
+      "x": 44.4,
+      "y": 46.08
+    },
+    {
+      "id": "E48",
+      "block": "E",
+      "area": 1141.89,
+      "status": "reserved",
+      "x": 44.56,
+      "y": 53.59
+    },
+    {
+      "id": "E58",
+      "block": "E",
+      "area": 1141.89,
+      "status": "reserved",
+      "x": 44.56,
+      "y": 60.22
+    },
+    {
+      "id": "E68",
+      "block": "E",
+      "area": 1141.89,
+      "status": "reserved",
+      "x": 44.56,
+      "y": 66.85
+    },
+    {
+      "id": "E78",
+      "block": "E",
+      "area": 1141.89,
+      "status": "reserved",
+      "x": 44.56,
+      "y": 73.59
+    },
+    {
+      "id": "E88",
+      "block": "E",
+      "area": 1141.89,
+      "status": "reserved",
+      "x": 44.56,
+      "y": 80.0
+    },
+    {
+      "id": "D08",
+      "block": "D",
+      "area": 1304.59,
+      "status": "reserved",
+      "x": 52.7,
+      "y": 46.41
+    },
+    {
+      "id": "D18",
+      "block": "D",
+      "area": 1190.66,
+      "status": "reserved",
+      "x": 52.7,
+      "y": 53.81
+    },
+    {
+      "id": "D28",
+      "block": "D",
+      "area": 1190.66,
+      "status": "reserved",
+      "x": 52.7,
+      "y": 60.33
+    },
+    {
+      "id": "D38",
+      "block": "D",
+      "area": 1190.66,
+      "status": "reserved",
+      "x": 52.7,
+      "y": 66.96
+    },
+    {
+      "id": "D48",
+      "block": "D",
+      "area": 1190.66,
+      "status": "reserved",
+      "x": 52.53,
+      "y": 73.59
+    },
+    {
+      "id": "D58",
+      "block": "D",
+      "area": 1190.66,
+      "status": "reserved",
+      "x": 52.7,
+      "y": 80.0
+    },
+    {
+      "id": "C08",
+      "block": "C",
+      "area": 1021.38,
+      "status": "available",
+      "x": 67.63,
+      "y": 48.07
+    },
+    {
+      "id": "C18",
+      "block": "C",
+      "area": 1190.66,
+      "status": "available",
+      "x": 67.63,
+      "y": 55.14
+    },
+    {
+      "id": "C28",
+      "block": "C",
+      "area": 1190.66,
+      "status": "available",
+      "x": 67.63,
+      "y": 62.32
+    },
+    {
+      "id": "C38",
+      "block": "C",
+      "area": 1190.66,
+      "status": "available",
+      "x": 67.63,
+      "y": 69.28
+    },
+    {
+      "id": "C48",
+      "block": "C",
+      "area": 1190.66,
+      "status": "available",
+      "x": 67.63,
+      "y": 76.46
+    },
+    {
+      "id": "C58",
+      "block": "C",
+      "area": 1190.66,
+      "status": "available",
+      "x": 67.63,
+      "y": 83.76
+    },
+    {
+      "id": "B08",
+      "block": "B",
+      "area": 1423.3,
+      "status": "available",
+      "x": 76.18,
+      "y": 50.61
+    },
+    {
+      "id": "B18",
+      "block": "B",
+      "area": 1318.32,
+      "status": "available",
+      "x": 76.18,
+      "y": 58.12
+    },
+    {
+      "id": "B28",
+      "block": "B",
+      "area": 1318.32,
+      "status": "available",
+      "x": 76.18,
+      "y": 64.97
+    },
+    {
+      "id": "B38",
+      "block": "B",
+      "area": 1318.32,
+      "status": "available",
+      "x": 76.18,
+      "y": 71.82
+    },
+    {
+      "id": "B48",
+      "block": "B",
+      "area": 1318.32,
+      "status": "available",
+      "x": 76.18,
+      "y": 78.78
+    },
+    {
+      "id": "B58",
+      "block": "B",
+      "area": 1318.32,
+      "status": "available",
+      "x": 76.18,
+      "y": 85.75
+    },
+    {
+      "id": "A08",
+      "block": "A",
+      "area": 1216.47,
+      "status": "sold",
+      "x": 92.12,
+      "y": 53.81
+    },
+    {
+      "id": "A18",
+      "block": "A",
+      "area": null,
+      "status": "sold",
+      "x": 92.12,
+      "y": 60.77
+    },
+    {
+      "id": "A28",
+      "block": "A",
+      "area": 1290.5,
+      "status": "available",
+      "x": 92.12,
+      "y": 67.96
+    },
+    {
+      "id": "A38",
+      "block": "A",
+      "area": 1325.37,
+      "status": "available",
+      "x": 92.12,
+      "y": 75.25
+    },
+    {
+      "id": "A48",
+      "block": "A",
+      "area": 1360.72,
+      "status": "available",
+      "x": 92.28,
+      "y": 82.65
+    }
+  ]
+}

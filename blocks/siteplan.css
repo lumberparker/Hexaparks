@@ -104,7 +104,9 @@
 
 .siteplan__canvas {
   position: relative;
-  min-width: 860px;
+  max-width: 1120px;
+  min-width: 720px;
+  margin: 0 auto;
 }
 
 .siteplan__image {
@@ -133,7 +135,7 @@
 .lot__ring {
   fill: none;
   stroke: var(--maroon);
-  stroke-width: 5;
+  stroke-width: 3.5;
   opacity: 0;
   transition: opacity 0.15s ease;
 }
@@ -141,7 +143,7 @@
 .lot__id {
   fill: var(--white);
   font-family: var(--font);
-  font-size: 21px;
+  font-size: 16px;
   font-weight: 600;
   text-anchor: middle;
   dominant-baseline: central;
@@ -151,7 +153,7 @@
 .lot__label {
   fill: #3a3434;
   font-family: var(--font);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   text-anchor: middle;
   pointer-events: none;
@@ -168,13 +170,13 @@
 .lot_apartada .lot__label {
   fill: var(--st-apartada);
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
 }
 
 .lot_vendida .lot__label {
   fill: #d83416;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
 }
 
 .lot:hover .lot__ring,
@@ -188,9 +190,9 @@
 }
 
 /* filtro: atenúa las naves que no coinciden */
-.siteplan[data-filter="disponible"] .lot:not(.lot_disponible),
-.siteplan[data-filter="apartada"] .lot:not(.lot_apartada),
-.siteplan[data-filter="vendida"] .lot:not(.lot_vendida) {
+.siteplan[data-filter="disponible"] .lot:not(.lot_disponible):not(.amenity-pin),
+.siteplan[data-filter="apartada"] .lot:not(.lot_apartada):not(.amenity-pin),
+.siteplan[data-filter="vendida"] .lot:not(.lot_vendida):not(.amenity-pin) {
   opacity: 0.18;
 }
 
@@ -360,4 +362,37 @@
 .siteplan__tip_below::after {
   top: -8px;
   bottom: auto;
+}
+
+/* ----- amenidades numeradas ----- */
+.amenity-pin__dot {
+  fill: var(--maroon);
+}
+
+.siteplan__amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.siteplan__amenities li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.siteplan__amenity-num {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
 }

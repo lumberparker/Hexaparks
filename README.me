@@ -29,18 +29,20 @@ Hexaparks/
 
 ## Disponibilidad de naves (master plan)
 
-El estado de cada nave se edita en `assets/data/lotes.json`:
+Todo el plano sale de `assets/data/masterplan.json`:
 
 ```json
-{"id": "A08", "superficie": 1216.47, "estado": "disponible"}
+{ "id": "A08", "block": "A", "area": 1216.47, "status": "sold", "x": 92.12, "y": 53.81 }
 ```
 
-- `estado`: `disponible`, `apartada` o `vendida`.
-- Actualiza también `"actualizado"` (AAAA-MM-DD); se muestra debajo del plano.
-- Guarda, haz commit y push: el plano, la leyenda y los conteos se actualizan solos.
+- `status`: `available`, `reserved` o `sold` (también acepta `disponible`, `apartada`, `vendida`).
+- `area`: en m²; usa `null` si aún no se conoce.
+- `x` / `y`: posición del marcador en **porcentaje** (0–100) del ancho y alto de
+  `assets/images/masterplan/plano-base.jpg`. Solo cambian si cambia el plano.
+- `amenities`: marcadores numerados (1, 2, 3…) en el orden de la lista; `label_en` es opcional.
+- `totalArea` y `unit` se muestran sobre el plano.
 
-La posición de cada marcador sobre `assets/images/masterplan/plano-base.jpg` vive en
-`scripts/masterplan.js` y solo cambia si cambia el plano.
+Guarda, haz commit y push: marcadores, colores, conteos y lista se actualizan solos.
 
 > El JSON se carga con `fetch`, por lo que el plano no se ve al abrir `index.html` con doble clic.
 > Para verlo localmente usa un servidor (por ejemplo la extensión **Live Server** de VS Code).
