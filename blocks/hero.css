@@ -253,3 +253,8 @@
     display: none;
   }
 }
+
+.hero__tagline-en {
+  margin-left: auto;
+  font-size: clamp(14px, 2.55vw, 40px);
+}

@@ -204,3 +204,27 @@ main section[id] {
     --w: min(62vw, 260px);
   }
 }
+
+/* ===== Tagline en inglés (el SVG de la marca solo existe en español) ===== */
+.tagline-en {
+  display: none;
+  font-stretch: 125%;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+html[lang="en"] .lockup__tagline,
+html[lang="en"] .hero__tagline {
+  display: none;
+}
+
+html[lang="en"] .tagline-en {
+  display: block;
+}
+
+.lockup .tagline-en {
+  font-size: calc(var(--w) * 0.0262);
+}

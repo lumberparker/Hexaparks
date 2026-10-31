@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const render = () => {
       const on = !heroVideo.muted;
       soundBtn.setAttribute("aria-pressed", String(on));
-      soundBtn.setAttribute("aria-label", on ? "Silenciar video" : "Activar sonido del video");
+      const t = (k, es) => (window.HexaI18n ? window.HexaI18n.t(k) : es);
+      soundBtn.setAttribute("aria-label", on ? t("sound.on", "Silenciar video") : t("sound.off", "Activar sonido del video"));
       state.textContent = on ? "On" : "Off";
     };
 
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     heroVideo.addEventListener("volumechange", render);
+    document.addEventListener("hexa:lang", render);
     render();
   }
 

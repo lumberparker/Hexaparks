@@ -60,7 +60,9 @@ const LOT_POSITIONS = {
 
 const PLAN_W = 2731;
 const PLAN_H = 1380;
-const STATUS_LABEL = { disponible: "Disponible", apartada: "Apartada", vendida: "Vendida" };
+const STATUSES = ["disponible", "apartada", "vendida"];
+const T = (key, es) => (window.HexaI18n ? window.HexaI18n.t(key) : es);
+const statusLabel = (estado) => T(`st.${estado}`, estado);
 const SVG_NS = "http://www.w3.org/2000/svg";
 
 const fmtArea = (n) =>
@@ -89,41 +91,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!res.ok) throw new Error(res.status);
     data = await res.json();
   } catch (err) {
-    status.hidden = false;
-    status.textContent =
-      "No se pudo cargar la disponibilidad de naves. Abre el sitio desde un servidor (no con doble clic).";
+    const showError = () => {
+      status.hidden = false;
+      status.textContent = T(
+        "plan.error",
+        "No se pudo cargar la disponibilidad de naves. Abre el sitio desde un servidor (no con doble clic)."
+      );
+    };
+    showError();
+    document.addEventListener("hexa:lang", showError);
     return;
   }
 
   const lots = data.lotes.filter((l) => LOT_POSITIONS[l.id]);
-
-  // ----- marcadores sobre el plano -----
+  const stateOf = (lot) => (STATUSES.includes(lot.estado) ? lot.estado : "disponible");
   svg.setAttribute("viewBox", `0 0 ${PLAN_W} ${PLAN_H}`);
-  lots.forEach((lot) => {
-    const [x, y] = LOT_POSITIONS[lot.id];
-    const estado = STATUS_LABEL[lot.estado] ? lot.estado : "disponible";
-    const area = fmtArea(lot.superficie);
-    const g = svgEl("g", {
-      class: `lot lot_${estado}`,
-      tabindex: "0",
-      role: "button",
-      "data-id": lot.id,
-      "data-estado": estado,
-      "aria-label": `Nave ${lot.id}${area ? ", " + area : ""}, ${STATUS_LABEL[estado].toLowerCase()}`,
-    });
-    g.append(
-      svgEl("circle", { class: "lot__ring", cx: x, cy: y, r: 34 }),
-      svgEl("circle", { class: "lot__dot", cx: x, cy: y, r: 27 })
-    );
-    const id = svgEl("text", { class: "lot__id", x, y: y + 1 });
-    id.textContent = lot.id;
-    const label = svgEl("text", { class: "lot__label", x, y: y + 52 });
-    label.textContent = estado === "disponible" ? area || "" : STATUS_LABEL[estado].toUpperCase();
-    g.append(id, label);
-    svg.append(g);
-  });
 
   // ----- tooltip -----
+  const hideTip = () => {
+    tip.hidden = true;
+    svg.querySelectorAll(".lot_active").forEach((el) => el.classList.remove("lot_active"));
+  };
+
   const showTip = (g) => {
     const lot = lots.find((l) => l.id === g.dataset.id);
     const estado = g.dataset.estado;
@@ -131,19 +120,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     tip.innerHTML = "";
     const title = document.createElement("p");
     title.className = "siteplan__tip-title";
-    title.textContent = `Nave ${lot.id}`;
+    title.textContent = `${T("lot", "Nave")} ${lot.id}`;
     const meta = document.createElement("p");
     meta.className = "siteplan__tip-meta";
-    meta.textContent = fmtArea(lot.superficie) || "Superficie por confirmar";
+    meta.textContent = fmtArea(lot.superficie) || T("area.tbd", "Superficie por confirmar");
     const st = document.createElement("p");
     st.className = `siteplan__tip-status siteplan__tip-status_${estado}`;
-    st.textContent = STATUS_LABEL[estado];
+    st.textContent = statusLabel(estado);
     tip.append(title, meta, st);
     if (estado === "disponible") {
       const a = document.createElement("a");
       a.className = "siteplan__tip-cta";
-      a.href = `mailto:sales@hexaparks.com?subject=${encodeURIComponent("Información nave " + lot.id)}`;
-      a.textContent = "Solicitar información";
+      const subject = `${T("lot.mail", "Información nave")} ${lot.id}`;
+      a.href = `mailto:sales@hexaparks.com?subject=${encodeURIComponent(subject)}`;
+      a.textContent = T("lot.cta", "Solicitar información");
       tip.append(a);
     }
     tip.style.left = `${(x / PLAN_W) * 100}%`;
@@ -153,10 +143,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     tip.hidden = false;
     svg.querySelectorAll(".lot_active").forEach((el) => el.classList.remove("lot_active"));
     g.classList.add("lot_active");
-  };
-  const hideTip = () => {
-    tip.hidden = true;
-    svg.querySelectorAll(".lot_active").forEach((el) => el.classList.remove("lot_active"));
   };
 
   svg.addEventListener("click", (e) => {
@@ -185,44 +171,80 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (e.key === "Escape") hideTip();
   });
 
-  // ----- leyenda con conteo y filtro -----
-  const counts = { disponible: 0, apartada: 0, vendida: 0 };
-  lots.forEach((l) => (counts[STATUS_LABEL[l.estado] ? l.estado : "disponible"] += 1));
-  legend.innerHTML = "";
-  Object.keys(STATUS_LABEL).forEach((estado) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = `siteplan__chip siteplan__chip_${estado}`;
-    btn.setAttribute("aria-pressed", "false");
-    btn.innerHTML = `<span class="siteplan__swatch" aria-hidden="true"></span><span class="siteplan__chip-label"></span><span class="siteplan__count"></span>`;
-    btn.querySelector(".siteplan__chip-label").textContent = STATUS_LABEL[estado];
-    btn.querySelector(".siteplan__count").textContent = counts[estado];
-    btn.addEventListener("click", () => {
-      const on = btn.getAttribute("aria-pressed") !== "true";
-      legend.querySelectorAll(".siteplan__chip").forEach((b) => b.setAttribute("aria-pressed", "false"));
-      btn.setAttribute("aria-pressed", String(on));
-      root.dataset.filter = on ? estado : "";
-      hideTip();
-    });
-    legend.append(btn);
-  });
+  // ----- dibuja todo (se repite al cambiar de idioma) -----
+  const render = () => {
+    hideTip();
 
-  // ----- fecha de actualización -----
-  if (data.actualizado && updated) {
-    const d = new Date(`${data.actualizado}T12:00:00`);
-    updated.textContent = `Actualizado: ${d.toLocaleDateString("es-MX", { day: "numeric", month: "long", year: "numeric" })}`;
-  }
-
-  // ----- lista accesible -----
-  lots.forEach((lot) => {
-    const estado = STATUS_LABEL[lot.estado] ? lot.estado : "disponible";
-    const tr = document.createElement("tr");
-    tr.className = `siteplan__row_${estado}`;
-    [lot.id, fmtArea(lot.superficie) || "—", STATUS_LABEL[estado]].forEach((txt) => {
-      const td = document.createElement("td");
-      td.textContent = txt;
-      tr.append(td);
+    // marcadores
+    svg.innerHTML = "";
+    lots.forEach((lot) => {
+      const [x, y] = LOT_POSITIONS[lot.id];
+      const estado = stateOf(lot);
+      const area = fmtArea(lot.superficie);
+      const g = svgEl("g", {
+        class: `lot lot_${estado}`,
+        tabindex: "0",
+        role: "button",
+        "data-id": lot.id,
+        "data-estado": estado,
+        "aria-label": `${T("lot", "Nave")} ${lot.id}${area ? ", " + area : ""}, ${statusLabel(estado).toLowerCase()}`,
+      });
+      g.append(
+        svgEl("circle", { class: "lot__ring", cx: x, cy: y, r: 34 }),
+        svgEl("circle", { class: "lot__dot", cx: x, cy: y, r: 27 })
+      );
+      const id = svgEl("text", { class: "lot__id", x, y: y + 1 });
+      id.textContent = lot.id;
+      const label = svgEl("text", { class: "lot__label", x, y: y + 52 });
+      label.textContent = estado === "disponible" ? area || "" : statusLabel(estado).toUpperCase();
+      g.append(id, label);
+      svg.append(g);
     });
-    table.append(tr);
-  });
+
+    // leyenda con conteo y filtro
+    const counts = { disponible: 0, apartada: 0, vendida: 0 };
+    lots.forEach((l) => (counts[stateOf(l)] += 1));
+    legend.innerHTML = "";
+    STATUSES.forEach((estado) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `siteplan__chip siteplan__chip_${estado}`;
+      btn.setAttribute("aria-pressed", String(root.dataset.filter === estado));
+      btn.innerHTML = `<span class="siteplan__swatch" aria-hidden="true"></span><span class="siteplan__chip-label"></span><span class="siteplan__count"></span>`;
+      btn.querySelector(".siteplan__chip-label").textContent = statusLabel(estado);
+      btn.querySelector(".siteplan__count").textContent = counts[estado];
+      btn.addEventListener("click", () => {
+        const on = btn.getAttribute("aria-pressed") !== "true";
+        legend.querySelectorAll(".siteplan__chip").forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", String(on));
+        root.dataset.filter = on ? estado : "";
+        hideTip();
+      });
+      legend.append(btn);
+    });
+
+    // fecha de actualización
+    if (data.actualizado && updated) {
+      const d = new Date(`${data.actualizado}T12:00:00`);
+      const date = d.toLocaleDateString(T("date.locale", "es-MX"), { day: "numeric", month: "long", year: "numeric" });
+      updated.textContent = `${T("updated", "Actualizado")}: ${date}`;
+    }
+
+    // lista accesible
+    table.innerHTML = "";
+    lots.forEach((lot) => {
+      const estado = stateOf(lot);
+      const tr = document.createElement("tr");
+      tr.className = `siteplan__row_${estado}`;
+      [lot.id, fmtArea(lot.superficie) || "—", statusLabel(estado)].forEach((txt) => {
+        const td = document.createElement("td");
+        td.textContent = txt;
+        tr.append(td);
+      });
+      table.append(tr);
+    });
+  };
+
+  render();
+  document.addEventListener("hexa:lang", render);
 });

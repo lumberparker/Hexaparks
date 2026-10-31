@@ -44,3 +44,11 @@ La posición de cada marcador sobre `assets/images/masterplan/plano-base.jpg` vi
 
 > El JSON se carga con `fetch`, por lo que el plano no se ve al abrir `index.html` con doble clic.
 > Para verlo localmente usa un servidor (por ejemplo la extensión **Live Server** de VS Code).
+
+## Idiomas (ES / EN)
+
+- El texto en español está en `index.html`. La traducción al inglés vive en `scripts/i18n.js` (objeto `EN`).
+- Cada texto traducible lleva `data-i18n="clave"`; los atributos usan `data-i18n-alt` y `data-i18n-aria-label`.
+- Para cambiar un texto en inglés edita su valor en `EN`. Para añadir un texto nuevo, ponle `data-i18n="nueva.clave"` en el HTML y agrega `"nueva.clave": "English text"` en `EN`.
+- Textos generados por JavaScript (estados del plano, botón de sonido, etc.) están en `UI` dentro del mismo archivo.
+- El selector ES / EN recuerda la elección del visitante; el enlace `?lang=en` abre el sitio directo en inglés.
