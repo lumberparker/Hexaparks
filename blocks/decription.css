@@ -389,11 +389,19 @@
         text-align: left;
     }
     .venta{
-        width: 90px;
-        font-size: 4vw;
-        text-align: left;
-        
-    } 
+        box-sizing: border-box;
+        width: auto;
+        max-width: none;
+        height: auto;
+        margin-left: 16px;
+        margin-right: 16px;
+        padding: 20px 16px;
+        gap: 12px;
+        font-size: clamp(16px, 5vw, 28px);
+        line-height: 1.2;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
     .description__naves{
         width: auto;
     }
