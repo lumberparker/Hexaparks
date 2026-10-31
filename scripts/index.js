@@ -1,6 +1,13 @@
 // index.js — acordeón de "Características importantes"
 
 document.addEventListener("DOMContentLoaded", () => {
+  // video de portada: respeta "reducir movimiento" (se queda en el póster)
+  const heroVideo = document.querySelector("video.hero__image");
+  if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroVideo.removeAttribute("autoplay");
+    heroVideo.pause();
+  }
+
   const items = document.querySelectorAll(".features__toggle .toggle-item");
 
   const setOpen = (item, open) => {

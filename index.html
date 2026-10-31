@@ -61,11 +61,18 @@
       <main class="main">
         <!-- ===== HERO ===== -->
         <section class="hero" id="inicio">
-          <img
+          <video
             class="hero__image"
-            src="./images/brand/acceso.jpg"
-            alt="Acceso principal de Hexaparks con la torre de señalización y el Business Center"
-          />
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="./images/brand/acceso.jpg"
+            aria-hidden="true"
+          >
+            <source src="./videos/hexaparks-hero.mp4" type="video/mp4" />
+          </video>
           <p class="hero__note eyebrow eyebrow_dash">
             Donde todo está<br />pensado para<br />funcionar.
           </p>
